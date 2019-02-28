@@ -13,28 +13,37 @@
 <body>
     <div class="signup-page">
         <div class="text-center space " id="header ">
-            <h3>Register to EPIC</h3>
+            <h3 id="sign-text" class="login-up-text">Register to EPIC</h3>
         </div>
         <div class="form" class="">
             <div class=" apk-logo">
                 <img src="../assets/images/Epiclogo.jpg" alt="" width="100">
             </div>
             <form action="#" class="sigup-form">
-                <input type="text" placeholder="User name">
-                <input type="password" placeholder="Password">
-                <input type="email" placeholder="Email">
-                <button>Register</button>
-                <p class="message">Already registred ? <a href="#">Sign in</a></p>
+                <div class="form-body">
+                    <label>User name</label>
+                    <input type="text" placeholder="User name">
+                    <label class="" >Password</label>
+                    <input type="password" placeholder="Password">
+                    <label class="" >Email</label>
+                    <input type="email" placeholder="Email">
+                    <button>Register</button>
+                </div>
+                <p class="message">Already registred ? <a href="#" id="sigin-ref">Sign in</a></p>
             </form>
 
             <form action="#" class="sigin-form">
-                    <input type="text" placeholder="User name or email">
-                    <input type="password" placeholder="Password">
-                    <button>Sign in</button>
-                    <p class="message">Not registred ? <a href="#">Sign up</a></p>
-                </form>
+                <label>User name or email</label>
+                <input type="text" placeholder="User name or email">
+                <label class="" >Password</label>
+                <input type="password" placeholder="Password">
+                <button>Sign in</button>
+                <p class="message">Not registred ? <a href="#" id="signup-ref">Sign up</a></p>
+            </form>
         </div>
     </div>
+
+    <script src="../js/manage.display.js"></script>
 </body>
 
 </html>
