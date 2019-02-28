@@ -5,6 +5,10 @@ body {
     height: 100vh;
 }
 
+label{
+   float: left;
+}
+
 .signin-page {
     width: 360px;
     padding: 10% 0 0;
@@ -20,11 +24,12 @@ body {
 .form {
     position: relative;
     z-index: 1;
-    background: rgba(7, 40, 195, 0.8);
+    background: rgba(7, 113, 195, 0.8);
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 25px;
     text-align: center;
+    border-radius: 10%;
 }
 
 .form input {
@@ -33,13 +38,15 @@ body {
     background: #f2f2f2;
     width: 100%;
     border: 0;
-    margin: 0 0 15px;
-    padding: 15 px;
+    margin: 0 0 10px;
+     
     box-sizing: border-box;
     font-size: 14px;
 
 }
-
+form input{
+    padding: 10px;
+}
 .form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -65,7 +72,7 @@ body {
 }
 
 .form .message a {
-    color: #4CAF50;
+    color: #0e0e0e;
     text-decoration: none;
 }
 
@@ -82,24 +89,13 @@ body {
 }
 
 .login-up-text {
-    display: block !important;
-    height: auto !important;
-    padding-bottom: 0;
-    overflow: visible !important;
-    visibility: visible !important;
+        font-size: 2rem;
+        font-weight: 200;
+        flex: 100%;
+        background: #F6F8FA;    
 }
 
-#header {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
-    min-height: 70px;
-    user-select: none;
-    position: fixed;
-    z-index: 11;
-    width: 100%;
-    left: 0;
-    top: 0;
-    padding: 0 20px;
-}
+ 
 
 .space {
     padding: 20px 0;
@@ -111,4 +107,47 @@ body {
 
 .form button:hover, .form button:active{
     background: #4CA047;
+}
+
+.form .sigin-form{
+    display: none;
+}
+
+.hide{
+    display: none;
+}
+
+.form .signup-form{
+   
+}
+
+.sigin-ref{
+    
+}
+
+.groupOfInputs {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+  }
+
+  .form-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    padding: 0 24px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;
+     
+}
+
+.form label{
+    color: aliceblue;
+     
 }
