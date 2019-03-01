@@ -13,23 +13,76 @@
 <body>
     <div class="page">
         <!-- header start -->
-         <div class="header">
-             <div class="header-left to-left">
-                 <img class="to-left logo" src="assets/images/Epiclogo.jpg" onclick="callHome()"  width="70" alt="logo">
-                 <h1 onclick="callHome()">EPIC-Mail</h1>
-             </div>
-
-             <!-- Navigation -->
-             <div class="header-right to-right">
-                <div class="li nav-active" id="home-nav" onclick="callHome()" > Home </div>   
-                <div class="li nav-inactive" id="signin-nav" onclick="callSignin()"> Sign in </div>    
-                <div class="li nav-inactive" id="signup-nav" onclick="callSignup()"> Sign up </div>      
+        <div class="header">
+            <div class="header-left to-left">
+                <img class="to-left logo" src="assets/images/Epiclogo.jpg" onclick="callHome()" width="70" alt="logo">
+                <h1 onclick="callHome()">EPIC-Mail</h1>
             </div>
-             <!-- End of the navigation -->
-         </div>
-             <!-- End of the header-->
 
-         <div class="divider-small"></div>
+            <!-- Navigation -->
+            <div class="header-right to-right">
+                <div class="li nav-active" id="home-nav" onclick="callHome()"> Home </div>
+                <div class="li nav-inactive" id="signin-nav" onclick="callSignin()"> Sign in </div>
+                <div class="li nav-inactive" id="signup-nav" onclick="callSignup()"> Sign up </div>
+            </div>
+            <!-- End of the navigation -->
+        </div>
+        <!-- End of the header-->
+
+        <!-- Section body of the page-->
+        <div class="divider-small"></div>
+        <div class="page-body">
+            <div class="page-body-up">
+                <div class="page-body-left to-left">
+                    <p id="app-name">EPIC-Mail</p>
+                    <p id='app-pub'>Experience the ease and simplicity of EPIC-Mail, everywhere you go</p>
+                    <p id="go-button"><button>Let's start</button></p>
+                </div>
+                <div class="page-body-right to-right">
+                    <p>
+                        <img width="400" src="assets/images/ScreenshotForHme.png" alt="ScreenshotForHme" id="ScreenshotForHme">
+                    </p>
+                </div>
+
+            </div>
+            <div class="page-body-down">
+                <div class="page-body-left to-left">
+                    <p><img class="" src="assets/images/Epiclogo.jpg" onclick="callHome()" width="400" alt="logo"></p>
+                </div>
+                <div class="page-body-right to-right">
+
+                    <p id='app-pub'>As EPIC Andelans who work towards advancing human potential and giving back to the
+                        society,
+                        we wish to help you by this web app that helps people exchange messages/information over the
+                        internet.</p>
+
+                </div>
+            </div>
+
+            <!-- /Section body of the page-->
+            <!-- footer-->
+            <div class="footer">
+                        <div class="page-body-left to-left">
+                     <p id="app-name"> About EPIC-Mail</p>
+                    <p id='app-pub'>Message with individuals. Give someone message all from your inbox. Rectct sent messages.
+                        Save your emails, Twilio support...  </p>
+                     
+                        </div>
+                        <div class="page-body-center">
+                                <p id="app-name"> One EPIC Account for everything</p>
+                                <p id='app-pub'>One Username and password is all you need to unlock all the features of EPIC  </p>
+                        </div>
+                        <div class="page-body-right to-right">
+                               <ul>
+                                   <li>Privacy policy</li>
+                                   <li>Terms of service</li>
+                               </ul>
+                        </div>
+                        
+            </div>
+            <!-- /footer-->
+        </div>
+
     </div>
     <script src="js/manage.home.js"></script>
 </body>
