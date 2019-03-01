@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Oswald');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/* General CSS*/
+
 body {
 
     background-size: cover;
@@ -9,6 +15,7 @@ label{
    float: left;
 }
 
+/* CSS for sign up and sign in */
 .signin-page {
     width: 360px;
     padding: 10% 0 0;
@@ -93,6 +100,7 @@ form input{
         font-weight: 200;
         flex: 100%;
         background: #F6F8FA;    
+        font-family: 'Oswald', sans-serif;
 }
 
  
@@ -151,3 +159,4 @@ form input{
     color: aliceblue;
      
 }
+
