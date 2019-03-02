@@ -15,21 +15,51 @@
         <!-- header start -->
         <div class="header">
             <div class="header-left to-left">
-                <a class="to-left" href=""><nav>
+                <div class="to-left">
+                    <nav id="slide-button">
                         <div class="one"></div>
                         <div class="two"></div>
                         <div class="three"></div>
-                    </nav></a>
-                <img class=" logo" src="../assets/images/Epiclogo.jpg" onclick="callHome()" width="70" alt="logo">
-                <h1 class="to-right"onclick="callHome()">EPIC-Mail</h1>
+                    </nav>
+                </div>
+                <img class=" logo" src="../assets/images/Epiclogo.jpg" onclick="" width="70" alt="logo">
+                <h1 class="to-right" onclick="callHome()">EPIC-Mail</h1>
             </div>
 
             <!-- Navigation -->
             <div class="header-right to-right">
-                 <img id="notifications" class=" logo" src="../assets/images/notifications.png" onclick="callHome()" width="25" alt="logo">
-                <img class=" logo to-right" src="../assets/images/profile.jpg" onclick="callHome()" width="40" alt="logo">
+                <img id="notifications" class="" src="../assets/images/notifications.png" onclick="" width="25" alt="logo">
+                <img class=" logo to-right" src="../assets/images/profile.jpg" onclick="" width="40" alt="logo">
             </div>
             <!-- End of the navigation -->
         </div>
         <!-- End of the header-->
         <div class="divider-small"></div>
+
+        <div class="page-body">
+
+            <div class="side-nav to-left" id="side-menu">
+                <div class="profile-activity">
+                    <div class="profile-photo"><img id="image-slide" class="" src="../assets/images/profile.jpg" width="40"
+                            id="logo"></div>
+                    <div class="username-display">Username name</div>
+                </div>
+                <a class="side-active" href="">Inbox</a>
+                <a href="">Sent </a>
+                <a href="">Drafts</a>
+                <a href="">Admin</a>
+                <div class="new-message">New message</div>
+
+            </div>
+            <div class="main to-right">
+                <h1>the content</h1>
+            </div>
+            <!-- /Section body of the page-->
+
+        </div>
+    </div>
+
+    <script src="../js/manage.dashboard.js"></script>
+</body>
+
+</html>
