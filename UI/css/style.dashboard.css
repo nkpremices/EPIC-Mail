@@ -11,7 +11,7 @@ body{
 
 .page{
     
-    margin : 0% 0% 0% 0%;
+    
      
 }
 
@@ -19,6 +19,7 @@ body{
     background: rgba(7, 113, 195, 0.8);
     color: white;
     width: 100;
+    overflow: hidden;
     
     height: 60px;
 }
@@ -37,10 +38,14 @@ body{
     height: 50px; 
 }
 
+.hide{
+    display: none;
+}
+
 .header-right{
     display: inline-block;
     height: 60px;
-    display: inline;
+     
     width: 60%;
     position: fixed;
      
@@ -84,7 +89,7 @@ body{
 }
 
 .divider-small{
-    background-color:#384b77e8;
+    background-color:rgba(56, 75, 119, 0.91);
     height: 8px;
 }
 
@@ -127,4 +132,89 @@ nav:hover div{
 
 #notifications{
     margin: 18px 0% 0px 80%;
+}
+
+#notifications:hover{
+    background:  #3a6fcae9;
+    padding: 1px 1% 1px 1%;
+    border-radius: 50% 50% 50% 50%;
+}
+
+.page-body{
+    display: inline;
+    height: 100%;
+
+}
+
+.side-nav{
+    display: inline;
+    position: fixed;
+    width : 18%;
+    height: 100%;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    background: #1d1d1d;
+    border-right: 1px solid rgb(214, 218, 214);
+    border-radius: 1px;
+    margin: 0px 0% 5px 0%;
+    padding-top: 5px;
+    transition: 0.5s;
+    
+}
+
+.side-nav .profile-activity{
+    display: inline;
+    margin: 10px 0% 5px 10%;
+}
+
+.profile-activity .profile-photo{
+    display: inline-block;
+    border-radius: 70%;
+}
+
+#image-slide{
+    border-radius: 50%;
+    
+}
+
+
+.profile-activity .username-display{
+    display: inline-block;
+}
+
+.side-nav a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin: 10px 0% 5px 10%;
+
+}
+.main{
+     
+    display: inline-block;
+    background: rgb(248, 246, 246);
+    width : 80%;
+    border-radius: 3px;
+    margin: 5px 1% 5px 20%;
+}
+
+.profile-activity .username-display{
+    text-align: center;
+}
+.profile-activity .profile-photo{
+    margin-top: 10px;
+    
+}
+
+.side-nav .new-message{
+    border: 0.5px solid rgb(214, 218, 214);
+    padding: 5px 0% 6px 10%;
+    margin : 15px 25% 5px 5%;
+    border-radius: 10px;
+}
+
+.side-active{
+    background-color: #474d5de8;
+    padding: 2px 0% 2px 5%;
+    border-bottom-right-radius: 15px
 }
