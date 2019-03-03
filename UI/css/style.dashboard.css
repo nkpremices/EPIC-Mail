@@ -303,7 +303,7 @@ nav:hover div{
 
 .mail .check-box{
     padding-left: 1%;
-    width: 5%;
+    width: 40px;
      
 }
 
@@ -313,21 +313,21 @@ nav:hover div{
 
 .mail .contacts-in-thread{
     padding-left: 1%;
-    width: 24%;
+    width: 5cm;
     
 }
 
 .mail .content-truncated{
     padding-left: 1%;
-    width: 68%;
+    width: 20cm;
      
 }
 
 .mail .last-activity-date{
     padding-left: 1%;
     padding-right: 1%;
-    
-    width: 13%;
+
+    width: 3cm;
     
 }
 
