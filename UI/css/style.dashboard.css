@@ -6,21 +6,22 @@
 
 body{
     margin: 0;
-    
+    padding: 0;
 }
 
 .page{
-    
-    
      
 }
 
 .header{
+    margin: 0px 0% 0px 0%;
+    top: 0;
     background: rgba(7, 113, 195, 0.8);
     color: white;
-    width: 100;
-    overflow: hidden;
-    
+    width: 100%;
+     
+    position: fixed;
+
     height: 60px;
 }
 
@@ -47,7 +48,7 @@ body{
     height: 60px;
      
     width: 60%;
-    position: fixed;
+     
      
 }
 
@@ -89,7 +90,9 @@ body{
 }
 
 .divider-small{
-    background-color:rgba(56, 75, 119, 0.91);
+    margin-top: 60px;
+    
+    background-color:rgba(0, 0, 0, 0.91);
     height: 8px;
 }
 
@@ -140,14 +143,19 @@ nav:hover div{
     border-radius: 50% 50% 50% 50%;
 }
 
+/* classes for the body of the page*/
+
 .page-body{
     display: inline;
     height: 100%;
 
 }
 
+/*Side menu */
+
 .side-nav{
-    display: inline;
+    
+    display: inline-block;
     position: fixed;
     width : 18%;
     height: 100%;
@@ -156,16 +164,13 @@ nav:hover div{
     background: #1d1d1d;
     border-right: 1px solid rgb(214, 218, 214);
     border-radius: 1px;
-    margin: 0px 0% 5px 0%;
-    padding-top: 5px;
+    margin: 68px 0% 5px 0%;
+    padding-top: 25px;
     transition: 0.5s;
     
 }
 
-.side-nav .profile-activity{
-    display: inline;
-    margin: 10px 0% 5px 10%;
-}
+ 
 
 .profile-activity .profile-photo{
     display: inline-block;
@@ -187,15 +192,7 @@ nav:hover div{
     color: white;
     display: block;
     margin: 10px 0% 5px 10%;
-
-}
-.main{
-     
-    display: inline-block;
-    background: rgb(248, 246, 246);
-    width : 80%;
-    border-radius: 3px;
-    margin: 5px 1% 5px 20%;
+    
 }
 
 .profile-activity .username-display{
@@ -218,3 +215,130 @@ nav:hover div{
     padding: 2px 0% 2px 5%;
     border-bottom-right-radius: 15px
 }
+.new-message:hover{
+      
+    background-color: #393c41e9; 
+}
+/*Main part*/
+
+.main{
+     
+    display: inline-block;
+     
+    width : 81.5%;
+    border-radius: 3px;
+    margin-top: 68px;
+}
+
+.mails-display{
+    width: 100%;
+    float: left;
+     
+}
+
+.controls{
+    padding: 4px 0% 4px 1%;
+    margin: 2px 0% 2px 0%;
+    background: #e6e6e6;
+    height: 50px;
+    position: fixed;
+    width: 80%;
+    border-radius: 20px;
+}
+.controls:hover{
+    background: #ffffff;
+}
+
+.controls table tr td{
+    text-align: center;
+    border-radius: 50%;
+    padding: 5px 0% 6px 0%;
+     
+}
+
+.controls table tr td:hover{
+    background: #e6e6e6;
+}
+
+.controls .to-right {
+    margin-top: 3px;
+     
+}
+
+
+.controls .to-left td{
+    
+    width: 55px;
+}
+
+.controls .to-right td{
+    
+    
+    width: 60px;
+}
+
+
+.range-of-total-mails{
+    padding-left : 50%;
+}
+.mails-display{
+    margin-top : 62px; 
+     
+}
+.mails-display table tr td{
+    padding: 7px 0% 7px 0%;
+    background: #f5f4f4;
+    border-radius: 3px;
+    
+}
+
+.mails-display table{
+    border-left: 1px solid rgb(168, 161, 161);
+    border-right: 1px solid rgb(165, 157, 157);
+}
+
+.mails-display table tr:hover td{
+    background: #c3c2c2;
+}
+
+.mail .check-box{
+    padding-left: 1%;
+    width: 1.5%;
+     
+}
+
+.mail .check-box:hover{
+    background: #ffffff;
+}
+
+.mail .contacts-in-thread{
+    padding-left: 1%;
+    width: 23%;
+    
+}
+
+.mail .content-truncated{
+    padding-left: 1%;
+    width: 60%;
+     
+}
+
+.mail .last-activity-date{
+    padding-left: 1%;
+    padding-right: 1%;
+    
+    width: 6.5%;
+    
+}
+
+#dropdown-arrow{
+    margin-top: 10px;
+}
+.check-box-input{
+    margin: 10px 0% 15px 0%;
+    
+}
+
+
+
+ 
