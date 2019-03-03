@@ -15,21 +15,177 @@
         <!-- header start -->
         <div class="header">
             <div class="header-left to-left">
-                <a class="to-left" href=""><nav>
+                <div class="to-left">
+                    <nav id="slide-button">
                         <div class="one"></div>
                         <div class="two"></div>
                         <div class="three"></div>
-                    </nav></a>
-                <img class=" logo" src="../assets/images/Epiclogo.jpg" onclick="callHome()" width="70" alt="logo">
-                <h1 class="to-right"onclick="callHome()">EPIC-Mail</h1>
+                    </nav>
+                </div>
+                <img class=" logo" src="../assets/images/Epiclogo.jpg" onclick="" width="70" alt="logo">
+                <h1 class="to-right" onclick="callHome()">EPIC-Mail</h1>
             </div>
 
             <!-- Navigation -->
             <div class="header-right to-right">
-                 <img id="notifications" class=" logo" src="../assets/images/notifications.png" onclick="callHome()" width="25" alt="logo">
-                <img class=" logo to-right" src="../assets/images/profile.jpg" onclick="callHome()" width="40" alt="logo">
+                <img id="notifications" class="" src="../assets/images/notifications.png" onclick="" width="25" alt="logo">
+                <img class=" logo to-right" src="../assets/images/profile.jpg" onclick="" width="40" alt="logo">
             </div>
             <!-- End of the navigation -->
+            <div class="divider-small"></div>
         </div>
         <!-- End of the header-->
-        <div class="divider-small"></div>
+
+
+        <div class="page-body">
+
+            <!-- Section side menu-->
+
+            <div class="side-nav to-left" id="side-menu">
+                <div class="black">
+                    <div class="profile-activity">
+                        <div class="profile-photo"><img id="image-slide" class="" src="../assets/images/profile.jpg"
+                                width="40" id="logo"></div>
+                        <div class="username-display">Username name</div>
+                    </div>
+                    <a class="side-active" href="">Inbox</a>
+                    <a href="">Sent </a>
+                    <a href="">Drafts</a>
+                    <a href="">Admin</a>
+                    <div class="new-message">New message</div>
+                </div>
+
+            </div>
+            <!--/ Section side menu-->
+
+            <!-- Section main-->
+            <div class="main to-right">
+
+                <div class="controls">
+                    <table class="to-left">
+                        <tr>
+                            <td class="check-box">
+                                <input type="checkbox" name="select-all" class="check-box-input" />
+                                <img src="../assets/images/dropdownArrow.png" id="dropdown-arrow" alt="dropdown-arrow"
+                                    width="20">
+                            </td>
+                            <td class="archive">
+                                <img src="../assets/images/archive.png" id="archive-icon" alt="archive" width="25">
+                            </td>
+                            <td class="delete">
+                                <img src="../assets/images/deleteIcon.png" id="delete-icon" alt="delete" width="20">
+                            </td>
+                            <td class="mark-read">
+                                <img src="../assets/images/messageRead.svg" id="message-read-icon" alt="read" width="35">
+                            </td>
+                            <td class="move-to">
+                                <img src="../assets/images/moveTo.png" id="move-to-icon" alt="move" width="35">
+                            </td>
+
+                    </table>
+                    <table class="to-right">
+                        <td class="range-of-total-mails">
+                            range
+                        </td>
+                        <td class="prev-range">
+                            <img src="../assets/images/leftArrow.png" id="prev-range-icon" alt="prev" width="30">
+                        </td>
+                        <td class="next-range">
+                            <img src="../assets/images/rightArrow.png" id="next-range-icon" alt="next" width="30">
+                        </td>
+                        <td class="help">
+                            <img src="../assets/images/help.png" id="help-icon" alt="help" width="30">
+                        </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="mails-display">
+                    <table>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                        <tr class="mail">
+                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td class="contacts-in-thread">contacts</td>
+                            <td class="content-truncated">cont trun</td>
+                            <td class="last-activity-date">last</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="scrollbar to-right"></div>
+            </div>
+            <!--/ Section main-->
+            <!-- /Section body of the page-->
+
+        </div>
+    </div>
+
+    <script src="../js/manage.dashboard.js"></script>
+</body>
+
+</html>
