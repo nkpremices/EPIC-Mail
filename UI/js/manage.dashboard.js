@@ -1,5 +1,7 @@
 let reverse = true;
-const manageSlide = () =>{
+ 
+
+document.getElementById('slide-button').addEventListener("click", () =>{
     
     if(reverse)
     {
@@ -15,12 +17,27 @@ const manageSlide = () =>{
         reverse = true;
 
     }
-};
+});
 
-document.getElementById('slide-button').addEventListener("click",manageSlide);
- 
 
-const openSlideMenu = () =>{
-    
-    document.getElementById('main').style.marginLeft='250px';
-};
+//Going to sent messages  
+document.getElementById('sent').addEventListener("click", ()=> {
+
+    //changing the display of the side menu
+     document.getElementById('sent').className="side-active";
+     document.getElementById('inbox').className="#";
+     document.getElementById('drafts').className="#";
+     document.getElementById('admin').className="#";
+
+});
+
+//Going inbox
+document.getElementById('inbox').addEventListener("click", ()=> {
+
+    //changing the display of the navigation 
+     document.getElementById('sent').className="#";
+     document.getElementById('inbox').className="side-active";
+     document.getElementById('drafts').className="#";
+     document.getElementById('admin').className="#";
+
+});
