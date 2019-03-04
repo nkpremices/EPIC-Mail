@@ -187,7 +187,7 @@ nav:hover div{
     display: inline-block;
 }
 
-.side-nav a{
+.side-nav .a{
     text-decoration: none;
     color: white;
     display: block;
@@ -258,6 +258,7 @@ nav:hover div{
 
 .controls table tr td:hover{
     background: #e6e6e6;
+    box-shadow: 5px 0px 5px 0px rgba(143, 140, 140, 0.2);
 }
 
 .controls .to-right {
@@ -299,6 +300,7 @@ nav:hover div{
 
 .mails-display table tr:hover td{
     background: #c3c2c2;
+    box-shadow: 10px 10px 10px 10px rgba(95, 93, 93, 0.2);
 }
 
 .mail .check-box{
@@ -339,6 +341,33 @@ nav:hover div{
     
 }
 
+/*managing navigation and controls */
+ 
 
+.a div:hover{
+    background: #757575e8;
+    box-shadow: 5px 0px 5px 0px rgba(143, 140, 140, 0.2);
+}
+
+select{
+    background: transparent;
+    width: 50px!important ;
+    padding: 5px;
+    font-size: 15px;
+    line-height: 1;
+   border: 0;
+     
+    -webkit-appearance: none;
+    font-family:helvetica-roman;
+    color:rgb(65, 60, 60);   
+    
+      
+     text-indent: 0.01px;
+      
+    }
+  select option{
+    margin: px;
+    
+  }   
 
  
