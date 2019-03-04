@@ -5,6 +5,8 @@ var callSignin = function ()  {
      document.getElementById('home-nav').className="li nav-inactive";
      document.getElementById('signin-nav').className="li nav-active";
      document.getElementById('signup-nav').className="li nav-inactive";
+     window.location='html/signupIn.html';
+     signIn;
 
 };
 
@@ -14,6 +16,8 @@ var callSignup = function ()  {
     document.getElementById('home-nav').className="li nav-inactive";
     document.getElementById('signin-nav').className="li nav-inactive";
     document.getElementById('signup-nav').className="li nav-active";
+    window.location='html/signupIn.html';
+    signUp;
 };
 
 //Going to Home page from the nav
