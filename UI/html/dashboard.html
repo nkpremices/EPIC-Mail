@@ -48,10 +48,12 @@
                                 width="40" id="logo"></div>
                         <div class="username-display">Username name</div>
                     </div>
-                    <a class="side-active" href="">Inbox</a>
-                    <a href="">Sent </a>
-                    <a href="">Drafts</a>
-                    <a href="">Admin</a>
+                    <div class="a">
+                    <div id="inbox" >Inbox</div>
+                    <div id="sent" class="side-active">Sent </div>
+                    <div id="drafts">Drafts</div>
+                    <div id="admin">Admin</div>
+                </div>
                     <div class="new-message">New message</div>
                 </div>
 
@@ -65,9 +67,13 @@
                     <table class="to-left">
                         <tr>
                             <td class="check-box">
-                                <input type="checkbox" name="select-all" class="check-box-input" />
-                                <img src="../assets/images/dropdownArrow.png" id="dropdown-arrow" alt="dropdown-arrow"
-                                    width="20">
+                                    
+                                    <select name="pays" id="pays" class="check-box-input">
+                                        <option value="defqult">Select</option>
+                                        <option value="espagne">All </option>
+                                        <option value="read">Read</option>
+                                        <option value="unread">Unread</option>
+                                        </select>
                             </td>
                             <td class="archive">
                                 <img src="../assets/images/archive.png" id="archive-icon" alt="archive" width="25">
