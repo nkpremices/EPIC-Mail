@@ -49,11 +49,11 @@
                         <div class="username-display">Username name</div>
                     </div>
                     <div class="a">
-                    <div id="inbox" class="side-active">Inbox</div>
-                    <div id="sent">Sent </div>
-                    <div id="drafts">Drafts</div>
-                    <div id="admin">Admin</div>
-                </div>
+                        <div id="inbox" class="side-active" onclick="MessagesDisplay('inbox')">Inbox</div>
+                        <div id="sent" onclick="MessagesDisplay('sent')">Sent </div>
+                        <div id="drafts"  onclick="MessagesDisplay('drafts')">Drafts</div>
+                        <div id="admin">Admin</div>
+                    </div>
                     <div class="new-message">New message</div>
                 </div>
 
@@ -67,13 +67,13 @@
                     <table class="to-left">
                         <tr>
                             <td class="check-box">
-                                    
-                                    <select name="pays" id="pays" class="check-box-input">
-                                        <option value="defqult">Select</option>
-                                        <option value="espagne">All </option>
-                                        <option value="read">Read</option>
-                                        <option value="unread">Unread</option>
-                                        </select>
+
+                                <select name="pays" id="pays" class="check-box-input">
+                                    <option value="defqult">Select</option>
+                                    <option value="espagne">All </option>
+                                    <option value="read">Read</option>
+                                    <option value="unread">Unread</option>
+                                </select>
                             </td>
                             <td class="archive">
                                 <img src="../assets/images/archive.png" id="archive-icon" alt="archive" width="25">
@@ -107,78 +107,78 @@
 
                 </div>
                 <div class="mails-display">
-                    <table>
+                    <table class="mail-table">
                         <tr class="mail" id="1">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts 1</td>
-                            <td class="content-truncated">cont trun 1</td>
-                            <td class="last-activity-date">last 1</td>
+                            <td    class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts 1</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun 1</td>
+                            <td  onclick="openThread()" class="last-activity-date">last 1</td>
                         </tr>
                         <tr class="mail" id="2">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td  class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="3">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td   class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="4">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td    class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="5">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td   class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="6">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td    class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="7">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td   class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="8">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td   class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="9">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td    class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="10">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td    class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td  onclick="openThread()" class="contacts-in-thread">contacts</td>
+                            <td  onclick="openThread()" class="content-truncated">cont trun</td>
+                            <td  onclick="openThread()" class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="11">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td  class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
+                            <td onclick="openThread()"class="contacts-in-thread">contacts</td>
+                            <td onclick="openThread()"class="content-truncated">cont trun</td>
+                            <td onclick="openThread()"class="last-activity-date">last</td>
                         </tr>
                         <tr class="mail" id="12">
                             <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" /></td>
-                            <td class="contacts-in-thread">contacts</td>
-                            <td class="content-truncated">cont trun</td>
-                            <td class="last-activity-date">last</td>
+                            <td onclick="openThread()"class="contacts-in-thread">contacts</td>
+                            <td onclick="openThread()"class="content-truncated">cont trun</td>
+                            <td onclick="openThread()"class="last-activity-date">last</td>
                         </tr>
                     </table>
                 </div>
