@@ -233,6 +233,13 @@ nav:hover div{
 .mails-display{
     width: 100%;
     float: left;
+    margin-top : 62px; 
+     
+}
+.mails-display-inside-inbox{
+    width: 100%;
+    float: left;
+    margin-top : 62px; 
      
 }
 
@@ -282,11 +289,14 @@ nav:hover div{
 .range-of-total-mails{
     padding-left : 50%;
 }
-.mails-display{
-    margin-top : 62px; 
-     
-}
+ 
 .mails-display table tr td{
+    padding: 7px 0% 7px 0%;
+    background: #f5f4f4;
+    border-radius: 3px;
+    
+}
+.mails-display-inside-inbox table tr td{
     padding: 7px 0% 7px 0%;
     background: #f5f4f4;
     border-radius: 3px;
@@ -297,8 +307,17 @@ nav:hover div{
     border-left: 1px solid rgb(168, 161, 161);
     border-right: 1px solid rgb(165, 157, 157);
 }
+.mails-display-inside-inbox table{
+    border-left: 1px solid rgb(168, 161, 161);
+    border-right: 1px solid rgb(165, 157, 157);
+}
 
 .mails-display table tr:hover td{
+    background: #c3c2c2;
+    box-shadow: 10px 10px 10px 10px rgba(95, 93, 93, 0.2);
+}
+
+.mails-display-inside-inbox table tr:hover td{
     background: #c3c2c2;
     box-shadow: 10px 10px 10px 10px rgba(95, 93, 93, 0.2);
 }
