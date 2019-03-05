@@ -172,6 +172,8 @@ const openThread = (el)=>{
 
     }
 
+    deletePreviousBox();
+
     //creating the box to display the message
     createOverlay();
     createDialogBox();
