@@ -38,7 +38,7 @@ const MessagesDisplay = (box) => {
     
     //choosing which method will be loaded to read every email when it's clecked (Read? or write?)
     if((box.id==="inbox")||(box.id==="sent")) createTableForBox("read-mode");
-    else createTableForBox("write-mode");
+    else openThread("write-mode");
 
     
          
@@ -104,9 +104,18 @@ const createTableForBox = (mode) =>{
 //opening am mail's thread
 
 const openThread = (el)=>{
-    console.log(el.id)
-    console.log(el.parentNode.id)//el is the html id of the clicked tr
+   //el is the html id of the clicked tr
     //changing the classname for either features then emptying the display
+
+    let objRecieved ;
+
+    if(el==="write-mode") objRecieved = "";
+    else { 
+        objRecieved=el.id;
+        console.log(el.id)
+        console.log(el.parentNode.id)
+    }
+
     document.querySelector(".mails-display").className = 'mails-display-inside-inbox';
     document.querySelector(".mails-display-inside-inbox").innerHTML = '';
 
@@ -118,7 +127,7 @@ const openThread = (el)=>{
 
     //using the mode now to read or to write an/on an email
     let callbackFunctionReadWrite = "";
-    if(el.id==="read-mode") callbackFunctionReadWrite = "openMessageRead(this)";
+    if(objRecieved==="read-mode") callbackFunctionReadWrite = "openMessageRead(this)";
     else callbackFunctionReadWrite ="openMessageWrite(this)";
 
 
@@ -143,7 +152,7 @@ const openThread = (el)=>{
 
         let contacts = document.createElement("TD");
         contacts.setAttribute("class", "contacts-in-thread");
-        contacts.setAttribute("id", el.id);
+        contacts.setAttribute("id", objRecieved);
         contacts.setAttribute("onclick", callbackFunctionReadWrite);
         let t = document.createTextNode("owner name of the sender");
 
@@ -152,7 +161,7 @@ const openThread = (el)=>{
 
         let content = document.createElement("TD");
         content.setAttribute("class", "content-truncated");
-        content.setAttribute("id", el.id);
+        content.setAttribute("id", objRecieved);
         content.setAttribute("onclick", callbackFunctionReadWrite);
         let u = document.createTextNode("Content truncated");
 
@@ -161,7 +170,7 @@ const openThread = (el)=>{
 
         let date = document.createElement("TD");
         date.setAttribute("class", "last-activity-date");
-        date.setAttribute("id", el.id);
+        date.setAttribute("id", objRecieved);
         date.setAttribute("onclick", callbackFunctionReadWrite);
         let v = document.createTextNode("Date");
 
