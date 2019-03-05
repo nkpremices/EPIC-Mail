@@ -374,6 +374,7 @@ select option {
     border: 1px solid rgb(66, 65, 65);
     width: 70%;
     z-index: 10;
+    font-family: "Roboto", sans-serif;
 }
 
 #dialog-box #dialog-box-head {
