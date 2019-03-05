@@ -309,7 +309,7 @@ const deletePreviousBox =()=>{
 //fuction to create a message
 
 const newMessage = (el)=>{
-    //deleting previous messages box
+    //deleting previous messages boxl
     deletePreviousBox();
 
     //creating the box to display the message
@@ -318,4 +318,21 @@ const newMessage = (el)=>{
 
     openMessageWrite(el);
 
+};
+
+const profile=(el)=>{
+    document.querySelector(".profile-box").style.display=("inline");
+};
+
+const changePassword =(el)=>{
+    document.querySelector(".profile-box").style.display=("none");
+    document.querySelector(".form").style.display=("inline");
+};
+
+const submit = (el)=>{
+    document.querySelector(".form").style.display=("none");
+};
+
+const logout =()=>{
+    window.location=("../index.html");
 };
