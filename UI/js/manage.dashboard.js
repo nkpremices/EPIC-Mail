@@ -20,11 +20,11 @@ document.getElementById('slide-button').addEventListener("click", () => {
 //displaying the message of a requested box
 
 const MessagesDisplay = (box) => {
-    //box is the name of the clicked box menu(inbox,sent items, etc)
+    //box is the   clicked box menu(inbox,sent items, etc)
     //changing the display of the side menu
-    
+     
     for (el of document.querySelector('.a').getElementsByTagName('*')) el.className="#"; 
-    document.getElementById(box).className = "side-active";
+    document.getElementById(box.id).className = "side-active";
  
     
         //changing the classname for either features then emptying the display
@@ -36,61 +36,75 @@ const MessagesDisplay = (box) => {
         mailTable.setAttribute("id", "mail-table");
         document.querySelector(".mails-display").appendChild(mailTable);
     
-        for (let index = 0; index < 5; index++) {
-            let mail = document.createElement("TR");
-            mail.setAttribute("id", index);
-            mail.setAttribute("class", "mail");
+    //choosing which method will be loaded to read every email when it's clecked (Read? or write?)
+    if((box.id==="inbox")||(box.id==="sent")) createTableForBox("read-mode");
+    else createTableForBox("write-mode");
+
     
-    
-            let profile = document.createElement("TD");
-            profile.setAttribute("class", "check-box");
-            profile.setAttribute("id", "chb");
-    
-            let checkbox = document.createElement("input");
-            checkbox.setAttribute("type", "checkbox");
-            checkbox.setAttribute("name", "select-one");
-            checkbox.setAttribute("class", "check-box-input");
-    
-    
-            profile.appendChild(checkbox);
-            mail.appendChild(profile);
-    
-            let contacts = document.createElement("TD");
-            contacts.setAttribute("class", "contacts-in-thread");
-            contacts.setAttribute("onclick", "openThread(this)");
-            let t = document.createTextNode("Contacts");
-    
-            contacts.appendChild(t);
-            mail.appendChild(contacts);
-    
-            let content = document.createElement("TD");
-            content.setAttribute("class", "content-truncated");
-            content.setAttribute("onclick", "openThread(this)");
-            let u = document.createTextNode("Content truncated");
-    
-            content.appendChild(u);
-            mail.appendChild(content);
-    
-            let date = document.createElement("TD");
-            date.setAttribute("class", "last-activity-date");
-            date .setAttribute("onclick", "openThread(this)");
-            let v = document.createTextNode("Date");
-    
-            date.appendChild(v);
-            mail.appendChild(date);
-    
-    
-          
-            document.getElementById("mail-table").appendChild(mail);
-    
-        }
-    
-        //putting the loaded mail on the div
+         
+};
+
+//creating a table to display emails of a given box
+
+const createTableForBox = (mode) =>{
+    console.log(mode);
+    for (let index = 0; index < 5; index++) {
+        let mail = document.createElement("TR");
+        mail.setAttribute("id", index);
+        mail.setAttribute("class", "mail");
+
+
+        let profile = document.createElement("TD");
+        profile.setAttribute("class", "check-box");
+        profile.setAttribute("id", "chb");
+
+        let checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("name", "select-one");
+        checkbox.setAttribute("class", "check-box-input");
+
+
+        profile.appendChild(checkbox);
+        mail.appendChild(profile);
+
+        let contacts = document.createElement("TD");
+        contacts.setAttribute("class", "contacts-in-thread");
+        contacts.setAttribute("id", mode);
+        contacts.setAttribute("onclick", "openThread(this)");
+        let t = document.createTextNode("Contacts");
+
+        contacts.appendChild(t);
+        mail.appendChild(contacts);
+
+        let content = document.createElement("TD");
+        content.setAttribute("class", "content-truncated");
+        content.setAttribute("id", mode);
+        content.setAttribute("onclick", "openThread(this)");
+        let u = document.createTextNode("Content truncated");
+
+        content.appendChild(u);
+        mail.appendChild(content);
+
+        let date = document.createElement("TD");
+        date.setAttribute("class", "last-activity-date");
+        date.setAttribute("id",mode);
+        date .setAttribute("onclick", "openThread(this)");
+        let v = document.createTextNode("Date");
+
+        date.appendChild(v);
+        mail.appendChild(date);
+
+
+      
+        document.getElementById("mail-table").appendChild(mail);
+
+    }
 };
 
 //opening am mail's thread
 
 const openThread = (el)=>{
+    console.log(el.id)
     console.log(el.parentNode.id)//el is the html id of the clicked tr
     //changing the classname for either features then emptying the display
     document.querySelector(".mails-display").className = 'mails-display-inside-inbox';
@@ -101,6 +115,13 @@ const openThread = (el)=>{
     let mailTable = document.createElement("TABLE");
     mailTable.setAttribute("id", "mail-table");
     document.querySelector(".mails-display-inside-inbox").appendChild(mailTable);
+
+    //using the mode now to read or to write an/on an email
+    let callbackFunctionReadWrite = "";
+    if(el.id==="read-mode") callbackFunctionReadWrite = "openMessageRead(this)";
+    else callbackFunctionReadWrite ="openMessageWrite(this)";
+
+
     for (let index = 0; index < 20; index++) {
 
         let mail = document.createElement("TR");
@@ -122,7 +143,8 @@ const openThread = (el)=>{
 
         let contacts = document.createElement("TD");
         contacts.setAttribute("class", "contacts-in-thread");
-        contacts.setAttribute("onclick", "openMessageRead(this)");
+        contacts.setAttribute("id", el.id);
+        contacts.setAttribute("onclick", callbackFunctionReadWrite);
         let t = document.createTextNode("owner name of the sender");
 
         contacts.appendChild(t);
@@ -130,7 +152,8 @@ const openThread = (el)=>{
 
         let content = document.createElement("TD");
         content.setAttribute("class", "content-truncated");
-        content.setAttribute("onclick", "openMessageRead(this)");
+        content.setAttribute("id", el.id);
+        content.setAttribute("onclick", callbackFunctionReadWrite);
         let u = document.createTextNode("Content truncated");
 
         content.appendChild(u);
@@ -138,7 +161,8 @@ const openThread = (el)=>{
 
         let date = document.createElement("TD");
         date.setAttribute("class", "last-activity-date");
-        date.setAttribute("onclick", "openMessageRead(this)");
+        date.setAttribute("id", el.id);
+        date.setAttribute("onclick", callbackFunctionReadWrite);
         let v = document.createTextNode("Date");
 
         date.appendChild(v);
@@ -192,6 +216,7 @@ const createDialogBox =(placeId)=>{
 
 const openMessageRead = (el)=>{
     //el is the clicked tag
+    console.log(el.id);
     console.log(el.parentNode.id);
     renderDialog(150,25,25,"Read message");
 
@@ -199,6 +224,33 @@ const openMessageRead = (el)=>{
 
     document.getElementById("dialog-box-foot").innerHTML="";
     let button = document.createElement("button");
+    button.innerHTML="return";
+    button.setAttribute("onclick","destroyDialog()")
+    document.getElementById("dialog-box-foot").appendChild(button);
+    
+
+};
+
+//function to write a email
+
+const openMessageWrite = (el)=>{
+    //el is the clicked tag
+    console.log(el.id);
+    console.log(el.parentNode.id);
+
+    let button = document.createElement("button");
+    let placeToWrite = document.createElement("textarea");
+     
+    placeToWrite.setAttribute("id","email-text")
+
+    
+    renderDialog(80,10,10,"Write message");
+
+    document.getElementById("dialog-box-body").innerHTML="";
+    document.getElementById("dialog-box-body").appendChild(placeToWrite);
+
+    document.getElementById("dialog-box-foot").innerHTML="";
+    
     button.innerHTML="return";
     button.setAttribute("onclick","destroyDialog()")
     document.getElementById("dialog-box-foot").appendChild(button);
