@@ -55,6 +55,7 @@ body {
 
 .logo {
     margin: 5px 0px 0px 2%;
+    cursor: pointer;
 }
 
 .li {
@@ -159,6 +160,7 @@ nav:hover div {
 .profile-activity .profile-photo {
     display: inline-block;
     border-radius: 70%;
+    cursor: pointer;
 }
 
 #image-slide {
@@ -182,6 +184,7 @@ nav:hover div {
 
 .profile-activity .profile-photo {
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .side-nav .new-message {
@@ -421,4 +424,171 @@ select option {
     width :98%;
     height: 300px;
     margin : 0px 0% 0px 0%;
+}
+
+/*classes for the reset message form*/
+ 
+ 
+.form {
+    position: fixed;
+    z-index: 1;
+    background: rgba(71, 133, 195, 0.8);
+    width: 300px;
+    top :6%;
+    left: 50%;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10%;
+    z-index: 15;
+    border: 1px solid rgb(214, 218, 214);
+    display: none;
+     
+
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+}
+form input{
+    padding: 10px;
+}
+.form .button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #384b77e8;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+
+.form .button:hover {
+    background: #4CA047
+}
+
+.form .message {
+    margin: 15px;
+    color: aliceblue;
+    font-size: 12px;
+}
+
+.form .message a {
+    color: #0e0e0e;
+    text-decoration: none;
+}
+
+.form .message a:hover {
+    color: rgb(12, 231, 19);
+}
+
+
+.login-up-text {
+        font-size: 2rem;
+        font-weight: 200;
+        flex: 100%;
+        background: #F6F8FA;    
+        font-family: 'Oswald', sans-serif;
+}
+
+ 
+
+.space {
+    padding: 20px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form .button:hover, .form .button:active{
+    background: rgb(47, 47, 47);
+}
+
+.form .sigin-form{
+    display: none;
+}
+
+.hide{
+    display: none;
+}
+
+ 
+.groupOfInputs {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+  }
+
+  .form-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    padding: 0 24px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-width: 0;
+     
+}
+
+.form label{
+    color: aliceblue;
+    float: left;
+     
+}
+
+.profile-box-foot button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #343536e8;
+    border-radius: 5px;
+    border: 0;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 5px;
+
+}
+
+.profile-box-foot{
+    margin: 5px;
+    border-radius: 15px;
+    border-top: 0.5px solid rgb(214, 218, 214);
+     
+}
+
+.profile-box{
+    position: fixed;
+    z-index: 1;
+    background: rgba(71, 133, 195, 0.8);
+    width: 300px;
+    top :6%;
+    left: 72%;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    z-index: 15;
+    border: 1px solid rgb(214, 218, 214);
+    display: none;
 }
