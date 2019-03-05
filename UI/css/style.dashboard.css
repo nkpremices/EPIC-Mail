@@ -372,28 +372,34 @@ select option {
     background: white;
     border-radius: 7px;
     border: 1px solid rgb(66, 65, 65);
-    width: 550px;
+    width: 70%;
     z-index: 10;
 }
 
 #dialog-box #dialog-box-head {
     background: rgb(29, 28, 28)!important;
-    font-size: 19px;
+    font-size: 15px;
     padding: 10px;
     color: #CCC;
+    border-radius: 2px;
     text-align: center;
+    width: 98%;
 }
 
  #dialog-box-body {
     background: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 2px;
     color: rgb(0, 0, 0);
+    width: 100%;
 }
 
 #dialog-box-foot {
     background: rgb(255, 255, 255);
-    padding: 10px;
+    padding: 2px;
     text-align: center;
+    width: 100%;
+    border-radius: 3px;
+    height:100%;
 }
 
 #dialog-box-foot button {
@@ -408,4 +414,10 @@ select option {
     font-size: 14px;
     cursor: pointer;
 
+}
+
+#email-text{
+    width :98%;
+    height: 300px;
+    margin : 0px 0% 0px 0%;
 }
