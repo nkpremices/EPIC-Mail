@@ -173,29 +173,29 @@ const openThread = (el)=>{
     }
 
     //creating the box to display the message
-    createOverlay("mail-table");
-    createDialogBox("mail-table");
+    createOverlay();
+    createDialogBox();
 
 
 };
 
 //function to create an overlay tag
 
-const createOverlay = (placeId)=>{
+const createOverlay = ()=>{
     let overlayMessageBox = document.createElement('div');
     overlayMessageBox.setAttribute("id","dialog-overlay");
-    document.getElementById(placeId).appendChild(overlayMessageBox);
+    document.getElementById("page").appendChild(overlayMessageBox);
     
 }
 
 //function to create a dialog box tag
 
-const createDialogBox =(placeId)=>{
+const createDialogBox =()=>{
 
 
     let readMessageBox = document.createElement('div');
     readMessageBox.setAttribute("id","dialog-box")
-    document.getElementById(placeId).appendChild(readMessageBox);
+    document.getElementById("page").appendChild(readMessageBox);
 
     let readMessageBoxHead = document.createElement('div');
     readMessageBoxHead.setAttribute("id","dialog-box-head")
@@ -251,7 +251,7 @@ const openMessageWrite = (el)=>{
 
     document.getElementById("dialog-box-foot").innerHTML="";
     
-    button.innerHTML="return";
+    button.innerHTML="Send";
     button.setAttribute("onclick","destroyDialog()")
     document.getElementById("dialog-box-foot").appendChild(button);
     
@@ -272,6 +272,7 @@ const openMessageWrite = (el)=>{
         document.getElementById('dialog-overlay').style.display = "block";
         
         dialogbox.style.display = "block";
+        dialogbox.style.position="fixed";
         
         document.getElementById('dialog-box-head').innerHTML = title;
         
@@ -284,3 +285,26 @@ const destroyDialog = ()=>{
     document.getElementById('dialog-box').style.display = "none";
 }
 
+//function to delete previous messages showing Box 
+
+const deletePreviousBox =()=>{
+     //variables to see if there is a 
+    let ovlPrevious = document.getElementById("dialog-overlay");
+    let boxPrevious = document.getElementById("dialog-box");
+    if(ovlPrevious) ovlPrevious.parentNode.removeChild(ovlPrevious);
+    if(boxPrevious) boxPrevious.parentNode.removeChild(boxPrevious);
+};
+
+//fuction to create a message
+
+const newMessage = (el)=>{
+    //deleting previous messages box
+    deletePreviousBox();
+
+    //creating the box to display the message
+    createOverlay();
+    createDialogBox();
+
+    openMessageWrite(el);
+
+};
