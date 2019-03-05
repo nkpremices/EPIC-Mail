@@ -1,165 +1,152 @@
 /*import of fonts*/
+
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Oswald');
-
 /*Classes for the header*/
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-.page{
-     
-}
+.page {}
 
-.header{
+.header {
     margin: 0px 0% 0px 0%;
     top: 0;
     background: rgba(7, 113, 195, 0.8);
     color: white;
     width: 100%;
-     
     position: fixed;
-
     height: 60px;
 }
 
-.to-left{
+.to-left {
     float: left;
 }
 
-.to-right{
+.to-right {
     font-family: 'Montserrat', sans-serif;
     float: right;
 }
-.header-left{ 
+
+.header-left {
     display: inline;
     width: 40%;
-    height: 50px; 
+    height: 50px;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.header-right{
+.header-right {
     display: inline-block;
     height: 60px;
-     
     width: 60%;
-     
-     
 }
 
-.header-left h1{
+.header-left h1 {
     margin: 5px 35% 10px 0%;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     font-size: 32px;
 }
 
-.logo{
+.logo {
     margin: 5px 0px 0px 2%;
 }
 
-.li{
+.li {
     display: inline-block;
-    width : 15%;
+    width: 15%;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
-   
-}
-.nav-inactive:hover{
-    margin: 10px 0% 0% 0%;
-    padding: 15px 0% 20px 0%;
-     background-color: #393c41e9;
 }
 
- 
-.nav-active{
+.nav-inactive:hover {
+    margin: 10px 0% 0% 0%;
+    padding: 15px 0% 20px 0%;
+    background-color: #393c41e9;
+}
+
+.nav-active {
     background-color: #384b77e8;
-     
     margin: 10px 0% 0% 0%;
     padding: 15px 0% 20px 0%;
 }
-.nav-inactive{
+
+.nav-inactive {
     margin: 0% 0% 0% 0%;
 }
 
-.divider-small{
+.divider-small {
     margin-top: 60px;
-    
-    background-color:rgba(0, 0, 0, 0.91);
+    background-color: rgba(0, 0, 0, 0.91);
     height: 8px;
 }
 
-nav div{
+nav div {
     height: 4px;
     background: white;
     margin: 5px 0;
     border-radius: 25px;
     transition: 0.3s;
-    
 }
 
-nav{
+nav {
     width: 30px;
     margin: 1em 0 0 1em;
-     
-      
 }
 
-.one{
+.one {
     width: 30px;
 }
 
-.two{
+.two {
     width: 20px;
 }
 
-.three{
-    width : 25px
+.three {
+    width: 25px
 }
 
-nav:hover div{
+nav:hover div {
     width: 30px;
 }
 
-.header-right .to-right{
+.header-right .to-right {
     border-radius: 70%;
     margin: 15px 4% 5px 0%;
 }
 
-#notifications{
+#notifications {
     margin: 18px 0% 0px 80%;
 }
 
-#notifications:hover{
-    background:  #3a6fcae9;
+#notifications:hover {
+    background: #3a6fcae9;
     padding: 1px 1% 1px 1%;
     border-radius: 50% 50% 50% 50%;
 }
 
 /* classes for the body of the page*/
 
-.page-body{
+.page-body {
     display: inline;
     height: 100%;
-
 }
 
 /*Side menu */
 
-.side-nav{
-    
+.side-nav {
     display: inline-block;
     position: fixed;
-    width : 18%;
+    width: 18%;
     height: 100%;
-    color:white;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     background: #1d1d1d;
     border-right: 1px solid rgb(214, 218, 214);
@@ -167,226 +154,270 @@ nav:hover div{
     margin: 68px 0% 5px 0%;
     padding-top: 25px;
     transition: 0.5s;
-    
 }
 
- 
-
-.profile-activity .profile-photo{
+.profile-activity .profile-photo {
     display: inline-block;
     border-radius: 70%;
 }
 
-#image-slide{
+#image-slide {
     border-radius: 50%;
-    
 }
 
-
-.profile-activity .username-display{
+.profile-activity .username-display {
     display: inline-block;
 }
 
-.side-nav .a{
+.side-nav .a {
     text-decoration: none;
     color: white;
     display: block;
     margin: 10px 0% 5px 10%;
-    
 }
 
-.profile-activity .username-display{
+.profile-activity .username-display {
     text-align: center;
 }
-.profile-activity .profile-photo{
+
+.profile-activity .profile-photo {
     margin-top: 10px;
-    
 }
 
-.side-nav .new-message{
+.side-nav .new-message {
     border: 0.5px solid rgb(214, 218, 214);
     padding: 5px 0% 6px 10%;
-    margin : 15px 25% 5px 5%;
+    margin: 15px 25% 5px 5%;
     border-radius: 10px;
 }
 
-.side-active{
+.side-active {
     background-color: #474d5de8;
     padding: 2px 0% 2px 5%;
     border-bottom-right-radius: 15px
 }
-.new-message:hover{
-      
-    background-color: #393c41e9; 
+
+.new-message:hover {
+    background-color: #393c41e9;
 }
+
 /*Main part*/
 
-.main{
-     
+.main {
     display: inline-block;
-     
-    width : 81.5%;
+    width: 81.5%;
     border-radius: 3px;
     margin-top: 68px;
 }
 
-.mails-display{
+.mails-display {
     width: 100%;
     float: left;
-    margin-top : 62px; 
-     
-}
-.mails-display-inside-inbox{
-    width: 100%;
-    float: left;
-    margin-top : 62px; 
-     
+    margin-top: 62px;
 }
 
-.controls{
+.mails-display-inside-inbox {
+    width: 100%;
+    float: left;
+    margin-top: 62px;
+}
+
+.controls {
     padding: 4px 0% 4px 1%;
     margin: 2px 0% 2px 0%;
-    background: #e6e6e6;
+    background: #e9e9e9;
     height: 50px;
     position: fixed;
     width: 80%;
     border-radius: 20px;
 }
-.controls:hover{
+
+.controls:hover {
     background: #ffffff;
 }
 
-.controls table tr td{
+.controls table tr td {
     text-align: center;
     border-radius: 50%;
     padding: 5px 0% 6px 0%;
-     
 }
 
-.controls table tr td:hover{
-    background: #e6e6e6;
+.controls table tr td:hover {
+    background: #ffffff;
     box-shadow: 5px 0px 5px 0px rgba(143, 140, 140, 0.2);
 }
 
 .controls .to-right {
     margin-top: 3px;
-     
 }
 
-
-.controls .to-left td{
-    
+.controls .to-left td {
     width: 55px;
 }
 
-.controls .to-right td{
-    
-    
+.controls .to-right td {
     width: 60px;
 }
 
-
-.range-of-total-mails{
-    padding-left : 50%;
-}
- 
-.mails-display table tr td{
-    padding: 7px 0% 7px 0%;
-    background: #f5f4f4;
-    border-radius: 3px;
-    
-}
-.mails-display-inside-inbox table tr td{
-    padding: 7px 0% 7px 0%;
-    background: #f5f4f4;
-    border-radius: 3px;
-    
+.range-of-total-mails {
+    padding-left: 50%;
 }
 
-.mails-display table{
-    border-left: 1px solid rgb(168, 161, 161);
-    border-right: 1px solid rgb(165, 157, 157);
+.mails-display table tr td {
+    padding: 7px 0% 7px 0%;
+    background: #ffffff;
+    border-radius: 3px;
 }
-.mails-display-inside-inbox table{
+
+.mails-display-inside-inbox table tr td {
+    padding: 7px 0% 7px 0%;
+    background: #ffffff;
+    border-radius: 3px;
+}
+
+.mails-display table {
     border-left: 1px solid rgb(168, 161, 161);
     border-right: 1px solid rgb(165, 157, 157);
 }
 
-.mails-display table tr:hover td{
+.mails-display-inside-inbox table {
+    border-left: 1px solid rgb(168, 161, 161);
+    border-right: 1px solid rgb(165, 157, 157);
+}
+
+.mails-display table tr:hover td {
     background: #c3c2c2;
     box-shadow: 10px 10px 10px 10px rgba(95, 93, 93, 0.2);
 }
 
-.mails-display-inside-inbox table tr:hover td{
+.mails-display-inside-inbox table tr:hover td {
     background: #c3c2c2;
     box-shadow: 10px 10px 10px 10px rgba(95, 93, 93, 0.2);
 }
 
-.mail .check-box{
+.mail .check-box {
     padding-left: 1%;
     width: 40px;
-     
 }
 
-.mail .check-box:hover{
+.mail .check-box:hover {
     background: #ffffff;
 }
 
-.mail .contacts-in-thread{
+.mail .contacts-in-thread {
     padding-left: 1%;
     width: 5cm;
-    
 }
 
-.mail .content-truncated{
+.mail .content-truncated {
     padding-left: 1%;
     width: 20cm;
-     
 }
 
-.mail .last-activity-date{
+.mail .last-activity-date {
     padding-left: 1%;
     padding-right: 1%;
-
     width: 3cm;
-    
 }
 
-#dropdown-arrow{
+#dropdown-arrow {
     margin-top: 10px;
 }
-.check-box-input{
+
+.check-box-input {
     margin: 10px 0% 15px 0%;
-    
 }
 
 /*managing navigation and controls */
- 
 
-.a div:hover{
+.a div:hover {
     background: #757575e8;
     box-shadow: 5px 0px 5px 0px rgba(143, 140, 140, 0.2);
 }
 
-select{
+select {
     background: transparent;
-    width: 50px!important ;
+    width: 50px!important;
     padding: 5px;
     font-size: 15px;
     line-height: 1;
-   border: 0;
-     
+    border: 0;
     -webkit-appearance: none;
-    font-family:helvetica-roman;
-    color:rgb(65, 60, 60);   
-    
-      
-     text-indent: 0.01px;
-      
-    }
-  select option{
-    margin: px;
-    
-  }   
+    font-family: helvetica-roman;
+    color: rgb(65, 60, 60);
+    text-indent: 0.01px;
+}
 
- 
+select option {
+    margin: px;
+}
+
+/*Design of the read message dialog */
+
+#dialog-overlay {
+    display: none;
+    opacity: .2;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgb(148, 144, 144);
+    width: 100%;
+     
+    z-index: 10;
+}
+
+#dialog-box {
+    display: none;
+    position: fixed;
+    background: white;
+    border-radius: 7px;
+    border: 1px solid rgb(66, 65, 65);
+    width: 70%;
+    z-index: 10;
+}
+
+#dialog-box #dialog-box-head {
+    background: rgb(29, 28, 28)!important;
+    font-size: 15px;
+    padding: 10px;
+    color: #CCC;
+    border-radius: 2px;
+    text-align: center;
+    width: 98%;
+}
+
+ #dialog-box-body {
+    background: rgb(255, 255, 255);
+    padding: 2px;
+    color: rgb(0, 0, 0);
+    width: 100%;
+}
+
+#dialog-box-foot {
+    background: rgb(255, 255, 255);
+    padding: 2px;
+    text-align: center;
+    width: 100%;
+    border-radius: 3px;
+    height:100%;
+}
+
+#dialog-box-foot button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #343536e8;
+    border-radius: 2px;
+    border: 0;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+
+#email-text{
+    width :98%;
+    height: 300px;
+    margin : 0px 0% 0px 0%;
+}
