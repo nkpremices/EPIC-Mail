@@ -114,7 +114,7 @@ form input{
 }
 
 .form button:hover, .form button:active{
-    background: #4CA047;
+    background: rgb(47, 47, 47);
 }
 
 .form .sigin-form{
