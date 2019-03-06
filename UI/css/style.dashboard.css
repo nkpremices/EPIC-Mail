@@ -119,12 +119,13 @@ nav:hover div {
 }
 
 .header-right .to-right {
-    border-radius: 70%;
+    border-radius: 60%;
     margin: 15px 4% 5px 0%;
 }
 
-#notifications {
-    margin: 18px 0% 0px 80%;
+.header-right #notifications {
+    margin: 0px 0% 7px 50%;
+    left : 50%;
 }
 
 #notifications:hover {
@@ -643,4 +644,29 @@ display: none;
     border: 1px solid rgb(214, 218, 214);
      
      
+}
+
+/*classes for the search button*/
+.header-right .search{
+ 
+cursor: pointer;
+display: inline-block;
+background: rgba(26, 126, 226, 0.8);
+width:220px;
+margin: 10px 0 0px 0;
+border-radius:10px; 
+height: 40px !important;
+z-index: 5;
+}
+
+.search #search-btn{
+    margin: 10px 3% 1px 0%;
+}
+
+.search .to-left{
+    margin: 5px 0% 0% 2%;
+    border: none;
+    border-radius: 5px;
+    height: 60%;
+    width : 85%;
 }
