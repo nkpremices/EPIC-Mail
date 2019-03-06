@@ -30,7 +30,8 @@
             <div class="header-right to-right">
                 <img id="notifications" class="" src="../assets/images/notifications.png" onclick="" width="25"
                     alt="logo">
-                <img class=" logo to-right" onclick="profile(this)" src="../assets/images/profile.jpg" onclick="" width="40" alt="logo">
+                <img class=" logo to-right" onclick="profile(this)" src="../assets/images/profile.jpg" onclick=""
+                    width="40" alt="logo">
             </div>
             <!-- End of the navigation -->
             <div class="divider-small"></div>
@@ -45,15 +46,15 @@
             <div class="side-nav to-left" id="side-menu">
                 <div class="black">
                     <div class="profile-activity">
-                        <div class="profile-photo"><img id="image-slide" onclick="profile(this)" src="../assets/images/profile.jpg"
-                                width="40" id="logo"></div>
+                        <div class="profile-photo"><img id="image-slide" onclick="profile(this)"
+                                src="../assets/images/profile.jpg" width="40" id="logo"></div>
                         <div class="username-display">Username name</div>
                     </div>
                     <div class="a">
                         <div id="inbox" class="side-active" onclick="MessagesDisplay(this)">Inbox</div>
                         <div id="sent" onclick="MessagesDisplay(this)">Sent </div>
                         <div id="drafts" onclick="MessagesDisplay(this)">Drafts</div>
-                        <div id="admin">Admin</div>
+                        <div id="groups" onclick="groups(this)" >Groups</div>
                     </div>
                     <div class="new-message" onclick="newMessage(this)">New message</div>
                 </div>
@@ -110,90 +111,8 @@
                 </div>
                 <div class="mails-display">
                     <table class="mail-table">
-                        <tr class="mail" id="1">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts 1</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun </td>
-                            <td onclick="openThread(this)" class="last-activity-date">last 1</td>
-                        </tr>
-                        <tr class="mail" id="2">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="3">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="4">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="5">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="6">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="7">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="8">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="9">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="10">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="11">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
-                        <tr class="mail" id="12">
-                            <td class="check-box"><input type="checkbox" name="select-one" class="check-box-input" />
-                            </td>
-                            <td onclick="openThread(this)" class="contacts-in-thread">contacts</td>
-                            <td onclick="openThread(this)" class="content-truncated">cont trun</td>
-                            <td onclick="openThread(this)" class="last-activity-date">last</td>
-                        </tr>
+                         
+                        
                     </table>
                 </div>
 
@@ -205,13 +124,13 @@
         </div>
     </div>
 
-    <!-- Navigation -->
-    <div class="form to-right">
-        
+    <!-- Boxes -->
+    <div class="form to-right reset-password">
 
-        <!-- Signup and sign in forms -->
 
-        <!-- Signup form -->
+        <!-- reset password -->
+
+
         <form action="#" class="sigup-form">
             <div class="form-body">
                 <label>Current password</label>
@@ -220,30 +139,62 @@
                 <input type="password" placeholder="new">
                 <label class="">Confirm passwordl</label>
                 <input type="password" placeholder="confirm">
-                <div class="button" onclick="submit(this)">Submit</div>
+                <div id="reset-password" class="button" onclick="submit(this)">Submit</div>
             </div>
 
         </form>
-        <!-- /Signup form -->
 
-
-        <!-- /forms -->
-    </div>
+         
     </div>
 
+    <!-- Box to show the profile -->
     <div class="profile-box">
-            <div class="profile-box-body">
-                <img src="" alt="">
-              <h4> name of the user</h4>
-              <i>email.adress@epic.com</i>
-            </div>
-            <div class="profile-box-foot">
-                  <button class="to-left" onclick="changePassword(this)" >Change password</button>
-                <button class="to-right" onclick="logout()">Sign out</button>
-                
-            </div>
-        </div> 
+        <div class="profile-box-body">
+            <img src="" alt="">
+            <h4> name of the user</h4>
+            <i>email.adress@epic.com</i>
+        </div>
+        <div class="profile-box-foot">
+            <button class="to-left" onclick="changePassword(this)">Change password</button>
+            <button class="to-right" onclick="logout()">Sign out</button>
 
+        </div>
+    </div>
+
+    <!-- Box to show the groups -->
+
+    <div class="groups">
+            <ul class="group-list gl1">
+                <li id="next-1" onclick="nextPageOfGroups(this)">Next page</li>
+                <li id="new" onclick="newGroup(this)">New group</li>
+                <li id="add" onclick="newGroup(this)">Add participants</li>
+                <li id="1" onclick="MessagesDisplay(this)">group-1</li>
+                <li class="2" onclick="MessagesDisplay(this)">group-2</li>
+                <li id="3" onclick="MessagesDisplay(this)"w>group-3</li>
+            </ul>    
+             
+       </div>
+   
+       <div class="form to-right new-group">
+   
+   
+               <!-- new group -->
+       
+       
+               <form action="#" class="sigup-form">
+                   <div class="form-body">
+                       <label>Group name</label>
+                       <input type="text" placeholder="Group name">
+                       <label class="">Participants</label>
+                       <input type="email" placeholder="Participants emails">
+                       <div id="create-group"class="button" onclick="submit(this)">Submit</div>
+                   </div>
+       
+               </form>
+       
+               <!-- /forms -->
+           </div>
+   
 
     <script src="../js/manage.dashboard.js"></script>
 </body>
