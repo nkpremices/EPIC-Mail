@@ -28,6 +28,10 @@
 
             <!-- Navigation -->
             <div class="header-right to-right">
+                    <div class="search">
+                    <input type='text' placeholder='Search...' id='search-text-input' class="to-left"/>
+                    <img class="to-right" src="../assets/images/search.png" width="20" id="search-btn">
+                </div>
                 <img id="notifications" class="" src="../assets/images/notifications.png" onclick="" width="25"
                     alt="logo">
                 <img class=" logo to-right" onclick="profile(this)" src="../assets/images/profile.jpg" onclick=""
@@ -56,7 +60,7 @@
                         <div id="drafts" onclick="MessagesDisplay(this)">Drafts</div>
                         <div id="groups" onclick="groups(this)" >Groups</div>
                     </div>
-                    <div class="new-message" onclick="newMessage(this)">New message</div>
+                    <div id="new-message" class="new-message" onclick="newMessage(this)">New message</div>
                 </div>
 
             </div>
