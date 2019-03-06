@@ -157,3 +157,23 @@ form input{
      
 }
 
+.remember-me{
+    width: 100%;
+    display: inline;
+}
+
+.remember-me .rm-label{
+     
+    left:0;
+    float: left !important;
+    width:75%;
+    text-align: left;
+}
+
+.remember-me #remember-me{
+    width: 25%;
+    
+    float: right !important;
+     
+    
+}
