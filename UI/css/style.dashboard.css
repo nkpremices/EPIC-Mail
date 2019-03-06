@@ -272,6 +272,7 @@ nav:hover div {
     border-radius: 3px;
 }
 
+
 .mails-display-inside-inbox table tr td {
     padding: 7px 0% 7px 0%;
     background: #ffffff;
@@ -431,7 +432,7 @@ select option {
  
 .form {
     position: fixed;
-    z-index: 1;
+    
     background: rgba(71, 133, 195, 0.8);
     width: 300px;
     top :6%;
@@ -591,4 +592,55 @@ form input{
     z-index: 15;
     border: 1px solid rgb(214, 218, 214);
     display: none;
+}
+
+/*class of the group management*/
+.groups{
+    position: fixed;
+background: rgba(7, 113, 195, 0.8);
+color: white;
+text-decoration: none;
+width : 15%;
+font-family: 'Montserrat', sans-serif;
+border-radius: 5px;
+z-index: 15;
+padding:1px;
+margin : 150px 0% 0px 15%;
+display: none;
+
+}
+
+.group-list{
+    list-style-type: none;
+}
+
+.group-list li{
+    padding: 2px;
+    width:100%;
+}
+
+.gl1{
+     
+}
+
+.group-list li:hover{
+    background-color: #393c41e9;
+}
+
+/*classes for the admin */
+
+.form-admin-group{
+    position: fixed;
+    
+    background: rgba(71, 133, 195, 0.8);
+    width: 300px;
+    top :6%;
+    left: 50%;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10%;
+    z-index: 15;
+    border: 1px solid rgb(214, 218, 214);
+     
+     
 }

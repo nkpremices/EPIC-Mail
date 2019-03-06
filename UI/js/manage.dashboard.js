@@ -1,3 +1,4 @@
+
 let reverse = true;
 //side menu display or hide
 
@@ -22,31 +23,40 @@ document.getElementById('slide-button').addEventListener("click", () => {
 const MessagesDisplay = (box) => {
     //box is the   clicked box menu(inbox,sent items, etc)
     //changing the display of the side menu
-     
-    for (el of document.querySelector('.a').getElementsByTagName('*')) el.className="#"; 
+    if(box){
+    for (el of document.querySelector('.a').getElementsByTagName('*')) el.className = "#";
     document.getElementById(box.id).className = "side-active";
- 
-    
-        //changing the classname for either features then emptying the display
-        if  (document.querySelector(".mails-display-inside-inbox")) document.querySelector(".mails-display-inside-inbox").className = 'mails-display';
-        document.querySelector(".mails-display").innerHTML = '';
-    
-        //displaying the mails in a table by creating objects with the dom
-        let mailTable = document.createElement("TABLE");
-        mailTable.setAttribute("id", "mail-table");
-        document.querySelector(".mails-display").appendChild(mailTable);
-    
-    //choosing which method will be loaded to read every email when it's clecked (Read? or write?)
-    if((box.id==="inbox")||(box.id==="sent")) createTableForBox("read-mode");
-    else openThread("write-mode");
+    }
 
-    
-         
+    //changing the classname for either features then emptying the display
+    if (document.querySelector(".mails-display-inside-inbox")) document.querySelector(".mails-display-inside-inbox").className = 'mails-display';
+    document.querySelector(".mails-display").innerHTML = '';
+
+    //displaying the mails in a table by creating objects with the dom
+    let mailTable = document.createElement("TABLE");
+    mailTable.setAttribute("id", "mail-table");
+    document.querySelector(".mails-display").appendChild(mailTable);
+
+    //choosing which method will be loaded to read every email when it's clecked (Read? or write?)
+    if(box){
+    if ((box.id === "inbox") || (box.id === "sent")) createTableForBox("read-mode");
+    else if(box.id === "inbox") openThread("write-mode");
+    else{
+        document.querySelector(".groups").style.display = ("none");
+        reverse = true;
+        createTableForBox("read-mode");
+    };
+}else{
+    createTableForBox("read-mode");
+}
+
+
+
 };
 
 //creating a table to display emails of a given box
 
-const createTableForBox = (mode) =>{
+const createTableForBox = (mode) => {
     console.log(mode);
     for (let index = 0; index < 5; index++) {
         let mail = document.createElement("TR");
@@ -87,15 +97,15 @@ const createTableForBox = (mode) =>{
 
         let date = document.createElement("TD");
         date.setAttribute("class", "last-activity-date");
-        date.setAttribute("id",mode);
-        date .setAttribute("onclick", "openThread(this)");
+        date.setAttribute("id", mode);
+        date.setAttribute("onclick", "openThread(this)");
         let v = document.createTextNode("Date");
 
         date.appendChild(v);
         mail.appendChild(date);
 
 
-      
+
         document.getElementById("mail-table").appendChild(mail);
 
     }
@@ -103,15 +113,15 @@ const createTableForBox = (mode) =>{
 
 //opening am mail's thread
 
-const openThread = (el)=>{
-   //el is the html id of the clicked tr
+const openThread = (el) => {
+    //el is the html id of the clicked tr
     //changing the classname for either features then emptying the display
 
-    let objRecieved ;
+    let objRecieved;
 
-    if(el==="write-mode") objRecieved = "";
-    else { 
-        objRecieved=el.id;
+    if (el === "write-mode") objRecieved = "";
+    else {
+        objRecieved = el.id;
         console.log(el.id)
         console.log(el.parentNode.id)
     }
@@ -127,8 +137,8 @@ const openThread = (el)=>{
 
     //using the mode now to read or to write an/on an email
     let callbackFunctionReadWrite = "";
-    if(objRecieved==="read-mode") callbackFunctionReadWrite = "openMessageRead(this)";
-    else callbackFunctionReadWrite ="openMessageWrite(this)";
+    if (objRecieved === "read-mode") callbackFunctionReadWrite = "openMessageRead(this)";
+    else callbackFunctionReadWrite = "openMessageWrite(this)";
 
 
     for (let index = 0; index < 20; index++) {
@@ -192,123 +202,123 @@ const openThread = (el)=>{
 
 //function to create an overlay tag
 
-const createOverlay = ()=>{
+const createOverlay = () => {
     let overlayMessageBox = document.createElement('div');
-    overlayMessageBox.setAttribute("id","dialog-overlay");
+    overlayMessageBox.setAttribute("id", "dialog-overlay");
     document.getElementById("page").appendChild(overlayMessageBox);
-    
+
 }
 
 //function to create a dialog box tag
 
-const createDialogBox =()=>{
+const createDialogBox = () => {
 
 
     let readMessageBox = document.createElement('div');
-    readMessageBox.setAttribute("id","dialog-box")
+    readMessageBox.setAttribute("id", "dialog-box")
     document.getElementById("page").appendChild(readMessageBox);
 
     let readMessageBoxHead = document.createElement('div');
-    readMessageBoxHead.setAttribute("id","dialog-box-head")
+    readMessageBoxHead.setAttribute("id", "dialog-box-head")
     document.getElementById("dialog-box").appendChild(readMessageBoxHead);
 
     let readMessageBoxBody = document.createElement('div');
-    readMessageBoxBody.setAttribute("id","dialog-box-body")
+    readMessageBoxBody.setAttribute("id", "dialog-box-body")
     document.getElementById("dialog-box").appendChild(readMessageBoxBody);
 
     let readMessageBoxFoot = document.createElement('div');
-    readMessageBoxFoot.setAttribute("id","dialog-box-foot")
+    readMessageBoxFoot.setAttribute("id", "dialog-box-foot")
     document.getElementById("dialog-box").appendChild(readMessageBoxFoot);
 
-    
+
 };
 
 //function to Read a email
 
-const openMessageRead = (el)=>{
+const openMessageRead = (el) => {
     //el is the clicked tag
     console.log(el.id);
     console.log(el.parentNode.id);
-    renderDialog(150,25,25,"Read message");
+    renderDialog(150, 25, 25, "Read message");
 
-    document.getElementById("dialog-box-body").innerText='This is the text of the mail untroncated'
+    document.getElementById("dialog-box-body").innerText = 'This is the text of the mail untroncated'
 
-    document.getElementById("dialog-box-foot").innerHTML="";
+    document.getElementById("dialog-box-foot").innerHTML = "";
     let button = document.createElement("button");
-    button.innerHTML="return";
-    button.setAttribute("onclick","destroyDialog()")
+    button.innerHTML = "return";
+    button.setAttribute("onclick", "destroyDialog()")
     document.getElementById("dialog-box-foot").appendChild(button);
-    
+
 
 };
 
 //function to write a email
 
-const openMessageWrite = (el)=>{
+const openMessageWrite = (el) => {
     //el is the clicked tag
     console.log(el.id);
     console.log(el.parentNode.id);
 
     let button = document.createElement("button");
     let placeToWrite = document.createElement("textarea");
-     
-    placeToWrite.setAttribute("id","email-text")
 
-    
-    renderDialog(80,10,10,"Write message");
+    placeToWrite.setAttribute("id", "email-text")
 
-    document.getElementById("dialog-box-body").innerHTML="";
+
+    renderDialog(80, 10, 10, "Write message");
+
+    document.getElementById("dialog-box-body").innerHTML = "";
     document.getElementById("dialog-box-body").appendChild(placeToWrite);
 
-    document.getElementById("dialog-box-foot").innerHTML="";
-    
-    button.innerHTML="Send";
-    button.setAttribute("onclick","destroyDialog()")
+    document.getElementById("dialog-box-foot").innerHTML = "";
+
+    button.innerHTML = "Send";
+    button.setAttribute("onclick", "destroyDialog()")
     document.getElementById("dialog-box-foot").appendChild(button);
-    
+
 
 };
- 
- //functiion for creating box dialogs
-   const renderDialog = (top,right,left,title)=>{
-        let winW = window.innerWidth;
-        let winH = window.innerHeight;
-       
-        let dialogbox = document.getElementById('dialog-box');
-        
-         
-        dialogbox.style.left =  left+"%";
-        dialogbox.style.right =  right+"%";
-        dialogbox.style.top = top+"px";
-        document.getElementById('dialog-overlay').style.display = "block";
-        
-        dialogbox.style.display = "block";
-        dialogbox.style.position="fixed";
-        
-        document.getElementById('dialog-box-head').innerHTML = title;
-        
-    }
+
+//functiion for creating box dialogs
+const renderDialog = (top, right, left, title) => {
+    let winW = window.innerWidth;
+    let winH = window.innerHeight;
+
+    let dialogbox = document.getElementById('dialog-box');
+
+
+    dialogbox.style.left = left + "%";
+    dialogbox.style.right = right + "%";
+    dialogbox.style.top = top + "px";
+    document.getElementById('dialog-overlay').style.display = "block";
+
+    dialogbox.style.display = "block";
+    dialogbox.style.position = "fixed";
+
+    document.getElementById('dialog-box-head').innerHTML = title;
+
+}
 
 //function to destroy box dialogs
 
-const destroyDialog = ()=>{
+const destroyDialog = () => {
     document.getElementById('dialog-overlay').style.display = "none";
     document.getElementById('dialog-box').style.display = "none";
 }
 
 //function to delete previous messages showing Box 
 
-const deletePreviousBox =()=>{
-     //variables to see if there is a 
+const deletePreviousBox = () => {
+    //variables to see if there is a 
     let ovlPrevious = document.getElementById("dialog-overlay");
     let boxPrevious = document.getElementById("dialog-box");
-    if(ovlPrevious) ovlPrevious.parentNode.removeChild(ovlPrevious);
-    if(boxPrevious) boxPrevious.parentNode.removeChild(boxPrevious);
+    if (ovlPrevious) ovlPrevious.parentNode.removeChild(ovlPrevious);
+    if (boxPrevious) boxPrevious.parentNode.removeChild(boxPrevious);
 };
 
 //fuction to create a message
 
-const newMessage = (el)=>{
+const newMessage = (el) => {
     //deleting previous messages boxl
     deletePreviousBox();
 
@@ -320,19 +330,77 @@ const newMessage = (el)=>{
 
 };
 
-const profile=(el)=>{
-    document.querySelector(".profile-box").style.display=("inline");
+//function to show the profile
+const profile = (el) => {
+    if (reverse) {
+        document.querySelector(".profile-box").style.display = ("inline");
+        reverse = false;
+    }
+
+    else {
+        document.querySelector(".profile-box").style.display = ("none");
+        reverse = true;
+    }
 };
 
-const changePassword =(el)=>{
-    document.querySelector(".profile-box").style.display=("none");
-    document.querySelector(".form").style.display=("inline");
+//funtion to change password
+
+const changePassword = (el) => {
+    reverse = true;
+    document.querySelector(".profile-box").style.display = ("none");
+    document.querySelector(".reset-password").style.display = ("inline");
 };
 
-const submit = (el)=>{
-    document.querySelector(".form").style.display=("none");
+//function to submit the reset password
+const submit = (el) => {
+
+    if (el.id === "reset-password") document.querySelector(".form").style.display = ("none");
+    else document.querySelector(".new-group").style.display = ("none");
 };
 
-const logout =()=>{
-    window.location=("../index.html");
+//function to logout
+const logout = () => {
+    window.location = ("../index.html");
 };
+
+//function to open the groups
+const groups = (el) => {
+    let previousBox = document.querySelector(".side-active")
+    if (reverse) {
+        for (el of document.querySelector('.a').getElementsByTagName('*')) el.className = "#";
+        document.getElementById(el.id).className = "side-active";
+        document.querySelector(".groups").style.display = ("inline");
+        reverse = false;
+    }
+
+    else {
+        previousBox.className = "side-active";
+        document.querySelector(".groups").style.display = ("none");
+        reverse = true;
+    }
+
+};
+
+//changing page of groups for those who will have so many groups
+
+const nextPageOfGroups = (el) => {
+
+};
+
+//function to create a new group
+
+const newGroup = (el) => {
+    if (el.id === "new") {
+        document.querySelector(".new-group").style.display = ("inline");
+        document.querySelector(".groups").style.display = ("none");
+        reverse = true;
+    }
+    else {
+        document.querySelector(".new-group").style.display = ("inline");
+        document.querySelector(".groups").style.display = ("none");
+        reverse = true;
+    }
+};
+
+MessagesDisplay();
+ 
