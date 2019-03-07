@@ -26,7 +26,7 @@ const MessagesDisplay = (box) => {
     
         for (el of document.querySelector('.a').getElementsByTagName('*')) el.className = "#";
         document.getElementById(box.id).className = "side-active";
-    
+        if(parseInt(box.id)) document.getElementById("groups").className = "side-active"; // to maintain the groups button active on the navigation
 
     //changing the classname for either features then emptying the display
     if (document.querySelector(".mails-display-inside-inbox")) document.querySelector(".mails-display-inside-inbox").className = 'mails-display';
