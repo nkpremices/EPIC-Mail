@@ -2,7 +2,7 @@
   "name": "epic-mail",
   "version": "1.0.0",
   "description": "A mailing web application",
-  "main": "index.js",
+  "main": "./server/routes/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nkpremices/EPIC-Mail/issues"
   },
-  "homepage": "https://github.com/nkpremices/EPIC-Mail#readme"
+  "homepage": "https://github.com/nkpremices/EPIC-Mail#readme",
+  "devDependencies": {
+    "eslint": "^5.15.1"
+  }
 }
