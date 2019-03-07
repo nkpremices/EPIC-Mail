@@ -40,7 +40,7 @@ const MessagesDisplay = (box) => {
     //choosing which method will be loaded to read every email when it's clecked (Read? or write?)
     //See if the box 
     
-        if ((box.id === "inbox") || (box.id === "sent")) createTableForBox("read-mode");//for inbox and sent items
+        if ((box.id === "inbox") || (box.id === "sent")||(box.id === "bin")) createTableForBox("read-mode");//for inbox and sent items
         else if (box.id === "drafts") openThread("write-mode");//we will create an object to catch statement of boxes(write or read mode could change in id of boxes erlier)
         else  {//Here catching initialization
             document.querySelector(".groups").style.display = ("none");
