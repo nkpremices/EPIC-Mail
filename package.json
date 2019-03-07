@@ -1,0 +1,19 @@
+{
+  "name": "epic-mail",
+  "version": "1.0.0",
+  "description": "A mailing web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkpremices/EPIC-Mail.git"
+  },
+  "author": "nkpremices",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkpremices/EPIC-Mail/issues"
+  },
+  "homepage": "https://github.com/nkpremices/EPIC-Mail#readme"
+}
