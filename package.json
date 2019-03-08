@@ -4,7 +4,8 @@
   "description": "A web mailing app",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./server/tests/test.js"
+    "test": "mocha ./server/tests/test.js",
+    "start": "node ./server/routes/index.js"
   },
   "repository": {
     "type": "git",
