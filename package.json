@@ -2,7 +2,7 @@
   "name": "epic-mail",
   "version": "1.0.0",
   "description": "A web mailing app",
-  "main": "index.js",
+  "main": "./server/routes/index.js",
   "scripts": {
     "test": "mocha ./server/tests/test.js",
     "start": "node ./server/routes/index.js"
