@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../routes/index');// eslint-disable-line
+const server = require('../routes/index');// eslint-disable-line
 
 chai.use(chaiHttp);
 
