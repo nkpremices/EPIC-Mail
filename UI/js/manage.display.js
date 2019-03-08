@@ -15,3 +15,5 @@ document.getElementById('sigin-ref').addEventListener('click',signIn);
 
 //Going to sign up from the form
 document.getElementById('signup-ref').addEventListener('click',signUp);
+//returning back on the home page
+const backToHome=()=>window.location='../index.html';
