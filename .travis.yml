@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - v10.15.1
+deploy:
+  provider: heroku
+  api_key:
+    secure: s1JRoIDflc+3DCBDBHypohAnJ8a9ss8qeXP1/YqTiLj1zjw8n+MT5UM5XIKJ4W2j+g9B1v4v0RIGeqzWVEvVqQsMiPiW0km8Td/gVWheO9T57PkAh1w3YICsU9cb8T211ATCtXsyIgMvX4TAZILQk+bygA0+oG4AEBeCFmSaPOR4CLqLsOnfmRqCjj/mFTkUuqFscaJ+XJ8PnRTmSRYxogT2R43/dbbF9ecwNLeerz63PhvRfZByadrl/CeaY325CW583DX+NLTjgQjGjod0DWpZhbcLy1StY+4pIxkqCzcFl8d5xzAuUsQxBGqfxp0+cnfHblQPI8kvS5VwRwmJmjM0pNWzleGy2oLa33aaN6sagSHlrAf3AaaSWeZGrHw4tTMjBAJsTAEgo3zdIurNiVeHfawV9t+RzOMfe9enPfj4exviIg5/NMlTwk7i/g9ZOzK9Z4RvdKE/9dJwCORPS/AxlxOC1kDmENnBdEiTAMoT1jbpLkJxoen7BtYA1tbezZXdkMx4gHX+2dieSbEOoeoXCc06BKHHhW3j1csgXKX7oMsygM6vFTnnnmyN/tjlGUIh5i7ZspPZFZXsVUaW2bjJm3DFyl7++QIE442ea4EQs3N1MI0pybNEHqflHOxZdwVrV48UWI6H8mI4KajDGZw2J4a0fx0CDrzJG9+E8kU=
+    app: EPIC-Mail
+after_success:
+  - npm run coverage
