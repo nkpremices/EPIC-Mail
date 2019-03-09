@@ -5,7 +5,9 @@
   "main": "./server/routes/index.js",
   "scripts": {
     "test": "mocha ./server/tests/test.js --exit",
-    "start": "node ./server/routes/index.js"
+    "start": "node ./server/routes/index.js",
+    "cover": "nyc --reporter=text npm test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -26,12 +28,16 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "mocha": "^6.0.2"
+    "istanbul": "^0.4.5",
+    "mocha": "^6.0.2",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^13.3.0"
   },
   "engines": {
     "node": "10.x"
