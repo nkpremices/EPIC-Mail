@@ -2,9 +2,10 @@
   "name": "epic-mail",
   "version": "1.0.0",
   "description": "A web mailing app",
-  "main": "index.js",
+  "main": "./server/routes/index.js",
   "scripts": {
-    "test": "mocha ./server/tests/test.js"
+    "test": "mocha ./server/tests/test.js",
+    "start": "node ./server/routes/index.js"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "mocha": "^6.0.2"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
