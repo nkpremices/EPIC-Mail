@@ -1,5 +1,5 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -37,4 +37,4 @@ app.listen(port, () => {
     console.log('server running on 3000');
 });
 
-module.exports = app;
+export default app;
