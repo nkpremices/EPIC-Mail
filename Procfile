@@ -1,1 +1,1 @@
-web: node ./server/routes/index.js
+web: nodemon ./server/routes/index.js --exec babel-node --presets env
