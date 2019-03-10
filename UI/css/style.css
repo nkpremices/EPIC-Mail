@@ -179,7 +179,7 @@ form input{
 .remember-me .rm-label{
      
     left:0;
-    float: left !important;
+    float: left ;
     width:75%;
     text-align: left;
 }
@@ -187,7 +187,7 @@ form input{
 .remember-me #remember-me{
     width: 25%;
     
-    float: right !important;
+    float: right ;
      
     
 }
