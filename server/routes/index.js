@@ -15,7 +15,7 @@ const todo = [
 ];
 
 app.post('/', (req, res) => {
-    console.log(req.body);
+    console.log(req.body);// eslint-disable-line
     const { id } = req.body;
     const descp = req.body.description;
     const creation = Date.now();// eslint-disable-line
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('server running on 3000');
+    console.log('server running on 3000');// eslint-disable-line
 });
 
 export default app;
