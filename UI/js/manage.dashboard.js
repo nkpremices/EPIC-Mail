@@ -19,7 +19,7 @@ document.getElementById('slide-button').addEventListener('click', () => {
 
 const createTableForBox = (mode) => {
     // custom console
-    console.log(mode);
+    console.log(mode);// eslint-disable-line
     for (let index = 0; index < 5; index += 1) {
         const mail = document.createElement('TR');
         mail.setAttribute('id', index);
@@ -259,8 +259,8 @@ const openMessageRead = (el) => {// eslint-disable-line
 const openMessageWrite = (el) => {
     // el is the clicked tag
     // custom console
-    console.log(el.id);
-    console.log(el.parentNode.id);
+    console.log(el.id);// eslint-disable-line
+    console.log(el.parentNode.id);// eslint-disable-line
 
     const button = document.createElement('button');
     const placeToWrite = document.createElement('textarea');
