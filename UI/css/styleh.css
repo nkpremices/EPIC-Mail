@@ -6,20 +6,16 @@
 
 body{
     margin: 0;
-    
 }
 
 .page{
-    
     margin : 0% 0% 0% 0%;
-     
 }
 
 .header{
     background: rgba(7, 113, 195, 0.8);
     color: white;
     width: 100;
-    
     height: 60px;
 }
 
@@ -32,18 +28,14 @@ body{
     float: right;
 }
 .header-left{ 
-    display: inline;
     width: 30%;
-    height: 50px;
-    
-    
+    height: 50px;    
 }
 .header-right{
     height: 50px;
-    display: inline;
+    display: inline-block;
     width: 70%;
     position: fixed;
-     
 }
 
 .header-left h1{
@@ -64,7 +56,6 @@ body{
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
-   
 }
 .nav-inactive:hover{
     margin: 10px 0% 0% 0%;
@@ -72,10 +63,8 @@ body{
      background-color: #393c41e9;
 }
 
- 
 .nav-active{
-    background-color: #384b77e8;
-     
+    background-color: #384b77e8;     
     margin: 10px 0% 0% 0%;
     padding: 15px 0% 20px 0%;
 }
@@ -95,20 +84,16 @@ body{
     background-image: url('../assets/images/bg1.jpeg');
     background-repeat: repeat-y; /* for vertical repeat */
     background-repeat: repeat-x; /* for horizontal repeat */
-     
 }
 
- .footer{
+.footer{
     background:#384b77e8;
     color: white;
-    width: 100;
-    
+    width: 100;    
     height: 200px;
-    
 }
 
 .page-body-up{
-    
     height: 250px;
     padding: 15px 0% 15px 0%;
     color: black;
@@ -124,7 +109,6 @@ body{
     display: inline-block;
     width: 50%;
     text-align: center;
-     
 }
 
 .page-body-up .page-body-left{
@@ -133,7 +117,6 @@ body{
     height:auto;
     padding: 50px 0% 50px 0;
     text-align: center;
-     
 }
 
 .page-body-down .page-body-right{
@@ -157,8 +140,6 @@ body{
     font-weight: 400;
     font-size: 32px;
     color:white;  
-    
-    
 }
 
 .page-body-up .page-body-left #app-pub{
@@ -176,7 +157,6 @@ p button{
     width: 30%;
     border: 0;
     padding: 10px;
-    
     color: #ffffff;
     font-size: 14px;
     cursor: pointer;
@@ -197,7 +177,7 @@ p button{
     color: white;
     text-decoration: none;
     padding: 30px 0% 0px 0%;
-    text-align: center;
+    text-align: left;
 }
 
 .footer .page-body-center{
@@ -206,14 +186,14 @@ p button{
     color: white;
     text-decoration: none;
     padding: 30px 0% 0px 0%;     
-    text-align: center;
+    text-align: left;
 }
 .footer .page-body-right{
     display: inline-block;
     width : 33%;
     color: white;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
     padding: 30px 0% 0px 0%;
 }
 
@@ -225,12 +205,12 @@ p button{
 }
 
 .footer .page-body-left #app-name{
-    margin: 5px 10px 10px 5%;
+    margin: 5px 10px 10px 15%;
      display: inline;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     font-size: 25px;
-    color:white;  
+    color:white;
 }
 
 .footer .page-body-center #app-pub{
@@ -241,7 +221,7 @@ p button{
 }
 
 .footer .page-body-center #app-name{
-    margin: 5px 10px 10px 5%;
+    margin: 5px 10px 10px 15%;
      display: inline;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
@@ -252,7 +232,3 @@ p button{
 ul{
     list-style-type: none;
 }
-
- 
- 
- 
