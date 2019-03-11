@@ -45,11 +45,9 @@ label{
     background: #f2f2f2;
     width: 100%;
     border: 0;
-    margin: 0 0 10px;
-     
+    margin: 0 0 10px;     
     box-sizing: border-box;
     font-size: 14px;
-
 }
 form input{
     padding: 10px;
@@ -65,7 +63,6 @@ form input{
     color: #ffffff;
     font-size: 14px;
     cursor: pointer;
-
 }
 
 .form .button {
@@ -79,10 +76,13 @@ form input{
     color: #ffffff;
     font-size: 14px;
     cursor: pointer;
-
 }
 
 .form button:hover {
+    background: #4CA047
+}
+
+.form .button:hover {
     background: #4CA047
 }
 
@@ -101,23 +101,18 @@ form input{
     color: rgb(12, 231, 19);
 }
 
-
-
 .apk-logo {
     margin: 10px 10px 10px 0;
     transition: all 0.3s ease-in-out;
-
 }
 
 .login-up-text {
-        font-size: 2rem;
-        font-weight: 200;
-        flex: 100%;
-        background: #F6F8FA;    
-        font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 200;
+    flex: 100%;
+    background: #F6F8FA;    
+    font-family: 'Oswald', sans-serif;
 }
-
- 
 
 .space {
     padding: 20px 0;
@@ -131,6 +126,10 @@ form input{
     background: rgb(47, 47, 47);
 }
 
+.form .button:hover, .form .button:active{
+    background: rgb(47, 47, 47);
+}
+
 .form .sigin-form{
     display: none;
 }
@@ -138,19 +137,14 @@ form input{
 .hide{
     display: none;
 }
-
-.form .signup-form{
-   
-}
-
  
 .groupOfInputs {
     position: relative;
     display: table;
     border-collapse: separate;
-  }
+}
 
-  .form-body {
+.form-body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -162,22 +156,18 @@ form input{
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    min-width: 0;
-     
+    min-width: 0;     
 }
 
 .form label{
     color: aliceblue;
-     
 }
 
 .remember-me{
     width: 100%;
-    display: inline;
 }
 
-.remember-me .rm-label{
-     
+.remember-me .rm-label{ 
     left:0;
     float: left ;
     width:75%;
@@ -185,9 +175,6 @@ form input{
 }
 
 .remember-me #remember-me{
-    width: 25%;
-    
+    width: 25%;    
     float: right ;
-     
-    
 }
