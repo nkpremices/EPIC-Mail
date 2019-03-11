@@ -339,7 +339,7 @@ nav:hover div {
 
 select {
     background: transparent;
-    width: 50px!important;
+    width: 50px;
     padding: 5px;
     font-size: 15px;
     line-height: 1;
@@ -380,7 +380,7 @@ select option {
 }
 
 #dialog-box #dialog-box-head {
-    background: rgb(29, 28, 28)!important;
+    background: rgb(29, 28, 28);
     font-size: 15px;
     padding: 10px;
     color: #CCC;
@@ -641,7 +641,7 @@ background: rgba(26, 126, 226, 0.8);
 width:220px;
 margin: 10px 0 0px 0;
 border-radius:10px; 
-height: 40px !important;
+height: 40px ;
 z-index: 5;
 }
 
