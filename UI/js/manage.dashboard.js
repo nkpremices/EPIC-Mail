@@ -1,4 +1,3 @@
-
 let reverse = true;
 // side menu display or hide
 
@@ -24,7 +23,6 @@ const createTableForBox = (box) => {
         const mail = document.createElement('TR');
         mail.setAttribute('id', index);
         mail.setAttribute('class', 'mail');
-
 
         const profile = document.createElement('TD');
         profile.setAttribute('class', 'check-box');
