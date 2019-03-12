@@ -217,12 +217,6 @@ nav:hover div {
     margin-top: 62px;
 }
 
-.mails-display-inside-inbox {
-    width: 100%;
-    float: left;
-    margin-top: 62px;
-}
-
 .controls {
     padding: 4px 0% 4px 1%;
     margin: 2px 0% 2px 0%;
@@ -270,29 +264,12 @@ nav:hover div {
     border-radius: 3px;
 }
 
-
-.mails-display-inside-inbox table tr td {
-    padding: 7px 0% 7px 0%;
-    background: #ffffff;
-    border-radius: 3px;
-}
-
 .mails-display table {
     border-left: 1px solid rgb(168, 161, 161);
     border-right: 1px solid rgb(165, 157, 157);
 }
 
-.mails-display-inside-inbox table {
-    border-left: 1px solid rgb(168, 161, 161);
-    border-right: 1px solid rgb(165, 157, 157);
-}
-
 .mails-display table tr:hover td {
-    background: #c3c2c2;
-    box-shadow: 10px 10px 10px 10px rgba(95, 93, 93, 0.2);
-}
-
-.mails-display-inside-inbox table tr:hover td {
     background: #c3c2c2;
     box-shadow: 10px 10px 10px 10px rgba(95, 93, 93, 0.2);
 }
@@ -339,7 +316,7 @@ nav:hover div {
 
 select {
     background: transparent;
-    width: 50px!important;
+    width: 50px;
     padding: 5px;
     font-size: 15px;
     line-height: 1;
@@ -380,7 +357,7 @@ select option {
 }
 
 #dialog-box #dialog-box-head {
-    background: rgb(29, 28, 28)!important;
+    background: rgb(29, 28, 28);
     font-size: 15px;
     padding: 10px;
     color: #CCC;
@@ -416,6 +393,14 @@ select option {
     color: #ffffff;
     font-size: 14px;
     cursor: pointer;
+    margin: 3px;
+}
+
+#dialog-box-body input{
+    width: 60%;    
+    margin: 10px;
+    border-radius: 6px;
+    height: 20px;
 }
 
 #email-text{
@@ -438,8 +423,6 @@ select option {
     z-index: 15;
     border: 1px solid rgb(214, 218, 214);
     display: none;
-     
-
 }
 
 .form input {
@@ -641,7 +624,7 @@ background: rgba(26, 126, 226, 0.8);
 width:220px;
 margin: 10px 0 0px 0;
 border-radius:10px; 
-height: 40px !important;
+height: 40px ;
 z-index: 5;
 }
 
@@ -655,4 +638,15 @@ z-index: 5;
     border-radius: 5px;
     height: 60%;
     width : 85%;
+}
+
+/* classe for the subject TR*/
+
+.mail-subject{
+    width : 100%;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    font-weight: bold;
 }
