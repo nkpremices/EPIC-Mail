@@ -17,9 +17,9 @@ document.getElementById('slide-button').addEventListener('click', () => {
 
 // creating a table to display emails of a given box
 
-const createTableForBox = (mode) => {
+const createTableForBox = (box) => {
     // custom console
-    console.log(mode);// eslint-disable-line
+    console.log(box);// eslint-disable-line
     for (let index = 0; index < 5; index += 1) {
         const mail = document.createElement('TR');
         mail.setAttribute('id', index);
@@ -41,7 +41,7 @@ const createTableForBox = (mode) => {
 
         const contacts = document.createElement('TD');
         contacts.setAttribute('class', 'contacts-in-thread');
-        contacts.setAttribute('id', mode);
+        contacts.setAttribute('id', box);
         contacts.setAttribute('onclick', 'openThread(this)');
         const t = document.createTextNode('Contacts');
 
@@ -50,7 +50,7 @@ const createTableForBox = (mode) => {
 
         const content = document.createElement('TD');
         content.setAttribute('class', 'content-truncated');
-        content.setAttribute('id', mode);
+        content.setAttribute('id', box);
         content.setAttribute('onclick', 'openThread(this)');
         const u = document.createTextNode('Content truncated');
 
@@ -59,7 +59,7 @@ const createTableForBox = (mode) => {
 
         const date = document.createElement('TD');
         date.setAttribute('class', 'last-activity-date');
-        date.setAttribute('id', mode);
+        date.setAttribute('id', box);
         date.setAttribute('onclick', 'openThread(this)');
         const v = document.createTextNode('Date');
 
@@ -112,31 +112,74 @@ const createDialogBox = () => {
 
 const openThread = (el) => {
     // el is the html id of the clicked tr
-    // changing the classname for either features then emptying the display
+    /* emptying the display */
+    document.querySelector('.mails-display').innerHTML = '';
+
+    /* displaying the mails in a table by creating objects
+    with the dom. putting the loaded mail in a div */
+
+    const createTable = () => {
+        const mailTable = document.createElement('TABLE');
+        mailTable.setAttribute('id', 'mail-table');
+        document.querySelector('.mails-display').appendChild(mailTable);
+    };
+
+    const createSubjectForThread = () => {
+        // creating the subject TR
+
+        const mailSubject = document.createElement('div');
+        mailSubject.setAttribute('id', 'subject');
+        mailSubject.setAttribute('class', 'mail-subject');
+        const mailSubjectSpan = document.createElement('span');
+        const node = document.createTextNode('This is the subject');
+
+        mailSubjectSpan.appendChild(node);
+        mailSubject.appendChild(mailSubjectSpan);
+        document.querySelector('.mails-display').appendChild(mailSubject);
+    };
 
     let objRecieved;
-
-    if (el === 'write-mode') objRecieved = '';// to see if the call comes from sent (in future it will be the id of the sent box)
-    else {
-        objRecieved = el.id;
-        console.log(el.id);
-        console.log(el.parentNode.id);
-    }
-
-    document.querySelector('.mails-display').className = 'mails-display-inside-inbox';
-    document.querySelector('.mails-display-inside-inbox').innerHTML = '';
-
-    // displaying the mails in a table by creating objects with the dom
-    // putting the loaded mail on the div
-    const mailTable = document.createElement('TABLE');
-    mailTable.setAttribute('id', 'mail-table');
-    document.querySelector('.mails-display-inside-inbox').appendChild(mailTable);
-
-    // using the mode now to read or to write an/on an email
     let callbackFunctionReadWrite = '';
-    if (objRecieved === 'read-mode') callbackFunctionReadWrite = 'openMessageRead(this)';
-    else callbackFunctionReadWrite = 'openMessageWrite(this)';
-
+    // to see if the click comes from drafts box
+    switch (el.id) {
+    case 'inbox': {
+        objRecieved = 'inbox';
+        callbackFunctionReadWrite = 'openMessageRead(this)';
+        createSubjectForThread();
+        createTable();
+        break;
+    }
+    case 'sent': {
+        objRecieved = 'sent';
+        callbackFunctionReadWrite = 'openMessageRead(this)';
+        createSubjectForThread();
+        createTable();
+        break;
+    }
+    case 'bin': {
+        objRecieved = 'bin';
+        callbackFunctionReadWrite = 'openMessageRead(this)';
+        createSubjectForThread();
+        createTable();
+        break;
+    }
+    case 'groups': {
+        objRecieved = 'groups';
+        callbackFunctionReadWrite = 'openMessageRead(this)';
+        createSubjectForThread();
+        createTable();
+        break;
+    }
+    default: {
+        // Here catching initialization
+        if (el === 'drafts') {
+            objRecieved = 'drafts';
+            callbackFunctionReadWrite = 'openMessageWrite(this)';
+            createTable();
+            break;
+        }
+    }
+    }
 
     for (let index = 0; index < 20; index += 1) {
         const mail = document.createElement('TR');
@@ -196,28 +239,61 @@ const openThread = (el) => {
 
 const MessagesDisplay = (box) => {
     // box is the   clicked box menu(inbox,sent items, etc)
-    // changing the display of the side menu
-    for (el of document.querySelector('.a').getElementsByTagName('*')){el.className = '#'};// eslint-disable-line
-    document.getElementById(box.id).className = 'side-active';
-    if (parseInt(box.id, 10)) document.getElementById('groups').className = 'side-active'; // to maintain the groups button active on the navigation
+    let boxId;
 
-    // changing the classname for either features then emptying the display
-    if (document.querySelector('.mails-display-inside-inbox')) document.querySelector('.mails-display-inside-inbox').className = 'mails-display';
+    // changing the display of the side menu
+    // eslint-disable-next-line no-restricted-syntax
+    for (el of document.querySelector('.a')// eslint-disable-line no-undef
+        .getElementsByTagName('*')) {
+        el.className = '#';// eslint-disable-line no-undef
+    }
+    document.getElementById(box.id).className = 'side-active';
+    if (parseInt(box.id, 10)) {
+        /* to maintain the groups button active on the navigation
+        if the click is coming from groups */
+        boxId = 'groups';
+        document.getElementById('groups').className = 'side-active';
+    } else boxId = box.id;
+    /* changing the classname for either
+    features then emptying the display */
     document.querySelector('.mails-display').innerHTML = '';
 
-    // displaying the mails in a table by creating objects with the dom
+    /* displaying the mails in a
+    table by creating objects with the dom */
     const mailTable = document.createElement('TABLE');
     mailTable.setAttribute('id', 'mail-table');
     document.querySelector('.mails-display').appendChild(mailTable);
 
-    // choosing which method will be loaded to read every email when it's clecked (Read? or write?)
-    // See if the box
-    if ((box.id === 'inbox') || (box.id === 'sent') || (box.id === 'bin')) createTableForBox('read-mode');// for inbox and sent items
-    else if (box.id === 'drafts') openThread('write-mode');// we will create an object to catch statement of boxes(write or read mode could change in id of boxes erlier)
-    else { // Here catching initialization
+    /* choosing which method will be loaded to read every
+    email when it's clecked (Read? or write?) */
+    // See from which box the request is comming
+    switch (boxId) {
+    case 'inbox': {
+        createTableForBox('inbox');
+        break;
+    }
+    case 'sent': {
+        createTableForBox('sent');
+        break;
+    }
+    case 'bin': {
+        createTableForBox('bin');
+        break;
+    }
+    case 'drafts': {
+        openThread('drafts');
+        break;
+    }
+    case 'groups': {
+        createTableForBox('groups');
+        break;
+    }
+    default: {
+        // Here catching initialization
         document.querySelector('.groups').style.display = ('none');
         reverse = true;
-        createTableForBox('read-mode');
+        createTableForBox('inbox');
+    }
     }
 };
 
@@ -245,7 +321,8 @@ const openMessageRead = (el) => {// eslint-disable-line
     console.log(el.parentNode.id);
     renderDialog(150, 25, 25, 'Read message');
 
-    document.getElementById('dialog-box-body').innerText = 'This is the text of the mail untroncated';
+    document.getElementById('dialog-box-body')
+        .innerText = 'This is the text of the mail untroncated';
 
     document.getElementById('dialog-box-foot').innerHTML = '';
     const button = document.createElement('button');
@@ -262,22 +339,35 @@ const openMessageWrite = (el) => {
     console.log(el.id);// eslint-disable-line
     console.log(el.parentNode.id);// eslint-disable-line
 
-    const button = document.createElement('button');
+    const sendbButton = document.createElement('button');
+    const saveDraft = document.createElement('button');
     const placeToWrite = document.createElement('textarea');
-
     placeToWrite.setAttribute('id', 'email-text');
+
+    const messageSubject = document.createElement('input');
+    messageSubject.setAttribute('class', 'message-subject');
+    messageSubject.placeholder = 'Subject';
+    messageSubject.required = true;
+    const reciever = document.createElement('input');
+    reciever.placeholder = 'To ...';
+    reciever.required = true;
+    reciever.setAttribute('class', 'message-subject');
 
 
     renderDialog(80, 10, 10, 'Write message');
 
     document.getElementById('dialog-box-body').innerHTML = '';
+    document.getElementById('dialog-box-body').appendChild(reciever);
+    document.getElementById('dialog-box-body').appendChild(messageSubject);
     document.getElementById('dialog-box-body').appendChild(placeToWrite);
 
     document.getElementById('dialog-box-foot').innerHTML = '';
 
-    button.innerHTML = 'Send';
-    button.setAttribute('onclick', 'destroyDialog()');
-    document.getElementById('dialog-box-foot').appendChild(button);
+    sendbButton.innerHTML = 'Send';
+    sendbButton.setAttribute('onclick', 'destroyDialog()');
+    saveDraft.innerHTML = 'Save as draft';
+    document.getElementById('dialog-box-foot').appendChild(sendbButton);
+    document.getElementById('dialog-box-foot').appendChild(saveDraft);
 };
 
 
@@ -322,8 +412,9 @@ const changePassword = (el) => { // eslint-disable-line
 
 // function to submit the reset password
 const submit = (el) => { // eslint-disable-line
-    if (el.id === 'reset-password') document.querySelector('.form').style.display = ('none');
-    else document.querySelector('.new-group').style.display = ('none');
+    if (el.id === 'reset-password') {
+        document.querySelector('.form').style.display = ('none');
+    } else document.querySelector('.new-group').style.display = ('none');
 };
 
 // function to logout
@@ -331,7 +422,7 @@ const logout = () => { // eslint-disable-line
     window.location = ('../index.html');
 };
 
-// function to open the groups
+// function to open the groups message box
 const groups = (el) => { // eslint-disable-line
     const previousBox = document.querySelector('.side-active');
     if (reverse) {
