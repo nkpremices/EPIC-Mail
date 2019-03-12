@@ -169,7 +169,7 @@ form input{
 
 .remember-me .rm-label{ 
     left:0;
-    float: left ;
+    float: left !important;
     width:75%;
     text-align: left;
 }

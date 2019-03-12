@@ -1,1 +1,1 @@
-web: nodemon ./server/routes/index.js --exec babel-node --presets env
+web: cross-env NODE_ENV=development nodemon ./server/index.js --exec babel-node --presets env
