@@ -175,6 +175,12 @@ form input{
 }
 
 .remember-me #remember-me{
+<<<<<<< HEAD
     width: 25%;
     float: right !important;    
 }
+=======
+    width: 25%;    
+    float: right ;
+}
+>>>>>>> 7ef5455576e9ec1dbd9494493e52a0f5a1780018

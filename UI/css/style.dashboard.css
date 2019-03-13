@@ -369,8 +369,7 @@ select option {
 #dialog-box-head .to-right{
     cursor : pointer;
 }
- 
-#dialog-box-body {
+ #dialog-box-body {
     background: rgb(255, 255, 255);
     padding: 2px;
     color: rgb(0, 0, 0);
