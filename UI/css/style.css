@@ -175,23 +175,6 @@ form input{
 }
 
 .remember-me #remember-me{
-<<<<<<< HEAD
-<<<<<<< HEAD
-    width: 25%;    
-    float: right ;
-}
-=======
     width: 25%;
     float: right !important;    
 }
->>>>>>> ft-create-account-#164441516
-=======
-    width: 25%;
-    float: right !important;    
-}
-=======
-    width: 25%;    
-    float: right ;
-}
->>>>>>> 7ef5455576e9ec1dbd9494493e52a0f5a1780018
->>>>>>> ft-create-account-#164441516
