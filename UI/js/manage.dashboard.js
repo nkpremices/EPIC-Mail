@@ -24,7 +24,6 @@ const createTableForBox = (box) => {
         mail.setAttribute('id', index);
         mail.setAttribute('class', 'mail');
 
-
         const profile = document.createElement('TD');
         profile.setAttribute('class', 'check-box');
         profile.setAttribute('id', 'chb');
