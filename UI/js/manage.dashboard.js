@@ -307,7 +307,14 @@ const renderDialog = (top, right, left, title) => {
     dialogbox.style.display = 'block';
     dialogbox.style.position = 'fixed';
 
+    const close = document.createElement('img');
+    close.setAttribute('src', '../assets/images/close.png');
+    close.setAttribute('width', '20');
+    close.setAttribute('class', 'to-right');
+    close.setAttribute('onclick', 'destroyDialog()');
+
     document.getElementById('dialog-box-head').innerHTML = title;
+    document.getElementById('dialog-box-head').appendChild(close);
 };
 
 // function to Read a email
@@ -325,8 +332,8 @@ const openMessageRead = (el) => {// eslint-disable-line
     document.getElementById('dialog-box-foot').innerHTML = '';
     const button = document.createElement('button');
     button.innerHTML = 'return';
-    button.setAttribute('onclick', 'destroyDialog()');
     document.getElementById('dialog-box-foot').appendChild(button);
+    button.setAttribute('onclick', 'destroyDialog()');
 };
 
 // function to write a email
@@ -362,7 +369,6 @@ const openMessageWrite = (el) => {
     document.getElementById('dialog-box-foot').innerHTML = '';
 
     sendbButton.innerHTML = 'Send';
-    sendbButton.setAttribute('onclick', 'destroyDialog()');
     saveDraft.innerHTML = 'Save as draft';
     document.getElementById('dialog-box-foot').appendChild(sendbButton);
     document.getElementById('dialog-box-foot').appendChild(saveDraft);
