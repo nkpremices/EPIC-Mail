@@ -24,7 +24,6 @@ const createTableForBox = (box) => {
         mail.setAttribute('id', index);
         mail.setAttribute('class', 'mail');
 
-
         const profile = document.createElement('TD');
         profile.setAttribute('class', 'check-box');
         profile.setAttribute('id', 'chb');
@@ -307,6 +306,12 @@ const renderDialog = (top, right, left, title) => {
 
     dialogbox.style.display = 'block';
     dialogbox.style.position = 'fixed';
+    
+    const close = document.createElement('img');
+    close.setAttribute('src','../assets/images/close.png');
+    close.setAttribute('width','20');
+    close.setAttribute('class','to-right');
+    close.setAttribute('onclick', 'destroyDialog()');
 
     const close = document.createElement('img');
     close.setAttribute('src', '../assets/images/close.png');
