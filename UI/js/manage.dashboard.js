@@ -334,6 +334,7 @@ const openMessageRead = (el) => {// eslint-disable-line
     const button = document.createElement('button');
     button.innerHTML = 'return';
     document.getElementById('dialog-box-foot').appendChild(button);
+    button.setAttribute('onclick', 'destroyDialog()');
 };
 
 // function to write a email
@@ -369,7 +370,6 @@ const openMessageWrite = (el) => {
     document.getElementById('dialog-box-foot').innerHTML = '';
 
     sendbButton.innerHTML = 'Send';
-    sendbButton.setAttribute('onclick', 'destroyDialog()');
     saveDraft.innerHTML = 'Save as draft';
     document.getElementById('dialog-box-foot').appendChild(sendbButton);
     document.getElementById('dialog-box-foot').appendChild(saveDraft);
