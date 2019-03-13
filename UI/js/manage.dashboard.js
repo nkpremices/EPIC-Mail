@@ -313,6 +313,12 @@ const renderDialog = (top, right, left, title) => {
     close.setAttribute('class','to-right');
     close.setAttribute('onclick', 'destroyDialog()');
 
+    const close = document.createElement('img');
+    close.setAttribute('src', '../assets/images/close.png');
+    close.setAttribute('width', '20');
+    close.setAttribute('class', 'to-right');
+    close.setAttribute('onclick', 'destroyDialog()');
+
     document.getElementById('dialog-box-head').innerHTML = title;
     document.getElementById('dialog-box-head').appendChild(close);
 };
