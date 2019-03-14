@@ -175,6 +175,6 @@ form input{
 }
 
 .remember-me #remember-me{
-    width: 25%;
-    float: right !important;    
+    width: 25%;    
+    float: right ;
 }
