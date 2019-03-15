@@ -18,7 +18,7 @@ const createToken = (tempUser) => {
     return token;
 };
 
-const signupUser = {
+const signUpInUser = {
     // sign up part of the users controller
     signup: async (req, res) => {
         const result = {};
@@ -124,4 +124,4 @@ const signupUser = {
 
 };
 
-export default signupUser;
+export default signUpInUser;
