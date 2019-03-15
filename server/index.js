@@ -22,10 +22,6 @@ const stage = configs.development;
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
 
-if (environment !== 'production') {
-    app.use(logger('dev'));
-}
-
 app.use('/api/v1', routes(router));
 
 if (stage.port) {
