@@ -4,11 +4,12 @@ import jwt from 'jsonwebtoken';
 // A schema for messages
 class MessageSchema {
     constructor(id,
-        createdOn, subject,
+        createdOn, subject, text,
         parentMessageId, status) {
         this.id = id;
         this.createdOn = createdOn;
         this.subject = subject;
+        this.text = text;
         this.parentMessageId = parentMessageId;
         this.status = status;
         this.unread = true;
@@ -47,7 +48,7 @@ const inboxStorage = [];// eslint-disable-line
 
 
 // a function to save a message when requested
-const saveMessage = (sender, reciever, subject, parentMessageId,
+const saveMessage = (sender, reciever, subject, text, parentMessageId,
     status) => new Promise((resolve, reject) => {
     let senderId;// eslint-disable-line
     let recieverId;// eslint-disable-line
@@ -61,7 +62,7 @@ const saveMessage = (sender, reciever, subject, parentMessageId,
                     if (!err) {
                         // creating a temp message
                         const tempMessage = new MessageSchema(idM += 1,
-                            Date.now(), subject, parentMessageId, status);
+                            Date.now(), subject, text, parentMessageId, status);
                         messagesStorage.push(tempMessage);
                         console.log(messagesStorage);
 
