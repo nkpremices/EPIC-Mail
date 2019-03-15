@@ -1,4 +1,4 @@
-import { saveMessage } from '../models/messages';
+import { saveMessage, fetchAllMessages } from '../models/messages';
 
 
 const messagesController = {
@@ -12,7 +12,7 @@ const messagesController = {
         try {
             const tempMessage = await saveMessage(sender, reciever, subject,
                 parentMessageId, status);
-            result.status = status;
+            result.status = _status;
             result.data = [tempMessage];
             res.status(_status).json(result);
         } catch (error) {
@@ -21,19 +21,17 @@ const messagesController = {
     },
     fetchAll: async (req, res) => {
         const result = {};
-        const _status = 200;// eslint-disable-line
-
-        const {
-            token, subject, parentMessageId, status,
-        } = req.body;
-        try {
-            const tempMessage = await saveMessage(token, subject,
-                parentMessageId, status);
-            result.status = status;
-            result.data = [tempMessage];
+        const _status = 200;// eslint-disable-line      
+        const tempMessages = await fetchAllMessages();
+        if (tempMessages) {
+            result.status = _status;
+            result.data = tempMessages;
             res.status(_status).json(result);
-        } catch (error) {
-            res.status(500).json(`${error}`);
+        } else {
+            result.data = {
+                message: 'empty array',
+            };
+            res.status(404).json(result);
         }
     },
 };
