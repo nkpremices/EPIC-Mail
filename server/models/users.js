@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
 import configs from '../config/config';
 
+'use strict';// eslint-disable-line 
+
 // a schema of all the users
 class UsersSchema {
     constructor(id,
@@ -63,4 +65,4 @@ const findUser = (userNameEmail, password) => new Promise((resolve, reject) => {
     });
 });
 
-export { saveUser, findUser };// eslint-disable-line 
+export { saveUser, findUser };
