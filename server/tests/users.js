@@ -35,12 +35,12 @@ describe('signup', () => {// eslint-disable-line
                 done();
             });
     });
-    it('should have property status', (done) => { // eslint-disable-line
+    it('should have property status equal to 200', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .post('/api/v1/auth/signup')
             .send(user)
             .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('status');
+                res.body.should.have.property('status', 200);
                 done();
             });
     });
@@ -83,7 +83,7 @@ describe('sign in', () => {// eslint-disable-line
             .post('/api/v1/auth/login')
             .send(userLog)
             .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('status')
+                res.body.should.have.property('status', 200)
                     .which.is.an('number');
                 done();
             });
