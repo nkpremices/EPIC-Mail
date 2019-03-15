@@ -24,10 +24,9 @@ app.use(bodyParser.json());
 
 app.use('/api/v1', routes(router));
 
-if (stage.port) {
-    app.listen(`${stage.port}`, () => {
-        console.log(`Server now listening at localhost:${stage.port}`);
-    });
-}
+app.listen(`${stage.port}`, () => {
+    console.log(`Server now listening at localhost:${stage.port}`);
+});
+
 
 export default app;
