@@ -19,7 +19,8 @@ describe('signup', () => {// eslint-disable-line
         chai.request(server)// eslint-disable-line
             .post('/api/v1/auth/signup')
             .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('data');
+                res.body.should.have.property('data')
+                    .which.is.an('object');
                 done();
             });
     });
