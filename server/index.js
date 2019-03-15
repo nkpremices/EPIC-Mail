@@ -1,10 +1,13 @@
 // imports
+import 'babel-core/register';
+import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import dotenv from 'dotenv';
 import configs from './config/config';
 import routes from './routes/index';
+
 
 dotenv.config();// Sets up dotenv as soon as our application starts
 

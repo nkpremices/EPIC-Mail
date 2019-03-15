@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
 import configs from '../config/config';
 
+'use strict';// eslint-disable-line 
+
 // a schema of all the users
 class UsersSchema {
     constructor(id,
@@ -44,4 +46,23 @@ const saveUser = (email, userName, firstName,
         });
 });
 
-export { saveUser };// eslint-disable-line 
+const findUser = (userNameEmail, password) => new Promise((resolve, reject) => {
+    // finding a user by his email or username
+    const tempUser = usersStorage.find(el => el.userName === userNameEmail)
+    || usersStorage.find(el => el.email === userNameEmail);
+
+    // seing if the password matches
+    bcrypt.compare(password, tempUser.password).then((match) => {
+        if (match) {
+            resolve(tempUser);
+        } else {
+            const error = {
+                status: 500,
+                error: 'Authentication error',
+            };
+            reject(error);
+        }
+    });
+});
+
+export { saveUser, findUser };
