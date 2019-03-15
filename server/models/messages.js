@@ -84,9 +84,10 @@ const saveMessage = (sender, reciever, subject, parentMessageId,
 });
 
 
-const fetchAllMessages = () => new Promise((resolve, reject) => {
+const fetchAllMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
     if (messagesStorage.length === 0) resolve(false);
     else resolve(messagesStorage);
 });
+
 
 export { saveMessage, fetchAllMessages }// eslint-disable-line
