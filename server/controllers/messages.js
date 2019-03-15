@@ -7,11 +7,11 @@ const messagesController = {
         const _status = 200;// eslint-disable-line
 
         const {
-            sender, reciever, subject, parentMessageId, status,
+            sender, reciever, subject, text, parentMessageId, status,
         } = req.body;
         try {
             const tempMessage = await saveMessage(sender, reciever, subject,
-                parentMessageId, status);
+                text, parentMessageId, status);
             result.status = _status;
             result.data = [tempMessage];
             res.status(_status).json(result);
