@@ -77,10 +77,16 @@ const saveMessage = (sender, reciever, subject, parentMessageId,
                         inboxStorage.push(tempInbox);
                         console.log(inboxStorage);
                         resolve(messagesStorage[messagesStorage.length - 1]);
-                    }
+                    } else reject(err);
                 });
         } else reject(err);
     });
 });
 
-export { saveMessage }// eslint-disable-line
+
+const fetchAllMessages = () => new Promise((resolve, reject) => {
+    if (messagesStorage.length === 0) resolve(false);
+    else resolve(messagesStorage);
+});
+
+export { saveMessage, fetchAllMessages }// eslint-disable-line
