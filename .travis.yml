@@ -10,6 +10,6 @@ deploy:
 env:
   global:
   - PORT=3000
-  - NODE_ENV="production"
-  - JWT_KEY="secret"
+  - NODE_ENV=production
+  - JWT_KEY=secret
 after_success: npm run coverage
