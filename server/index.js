@@ -18,6 +18,10 @@ const router = express.Router();
 const environment = process.env.NODE_ENV; // development
 const stage = configs.development;
 
+if (environment !== 'production') {
+    app.use(logger('dev'));
+}
+
 // app uses initializations
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
