@@ -2,6 +2,7 @@ import { saveMessage, fetchAllMessages } from '../models/messages';
 
 
 const messagesController = {
+    // function to send a message to a specific user
     send: async (req, res) => {
         const result = {};
         const _status = 200;// eslint-disable-line
@@ -19,9 +20,11 @@ const messagesController = {
             res.status(500).json(`${error}`);
         }
     },
+    // Function to get all recieved messages of a specific user
     fetchAll: async (req, res) => {
         const result = {};
-        const _status = 200;// eslint-disable-line      
+        const _status = 200;// eslint-disable-line
+        const { user } = req.body;
         const tempMessages = await fetchAllMessages();
         if (tempMessages) {
             result.status = _status;
