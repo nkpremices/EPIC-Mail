@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-
+import { usersStorage } from './users';
 
 // A schema for messages
 class MessageSchema {
@@ -59,24 +59,36 @@ const saveMessage = (sender, reciever, subject, text, parentMessageId,
                 (error, decodedReciever) => {
                     recieverId = decodedReciever.id;
                     if (!err) {
-                        // creating a temp message
-                        const tempMessage = new MessageSchema(idM += 1,
-                            Date.now(), subject, text, parentMessageId, status);
-                        messagesStorage.push(tempMessage);
-                        console.log(messagesStorage);
+                        if (usersStorage.find(user => user
+                            .id === decodedSender.id) && usersStorage
+                            .find(user => user
+                                .id === decodedReciever.id)) {
+                            // creating a temp message
+                            const tempMessage = new MessageSchema(idM += 1,
+                                Date.now(), subject, text,
+                                parentMessageId, status);
+                            messagesStorage.push(tempMessage);
+                            console.log(messagesStorage);
 
-                        // creating a temp sent message
-                        const tempSent = new SentSchema(senderId,
-                            tempMessage.id, Date.now());
-                        sentStorage.push(tempSent);
-                        console.log(sentStorage);
+                            // creating a temp sent message
+                            const tempSent = new SentSchema(senderId,
+                                tempMessage.id, Date.now());
+                            sentStorage.push(tempSent);
+                            console.log(sentStorage);
 
-                        // creating a temp sent message
-                        const tempInbox = new InboxSchema(recieverId,
-                            tempMessage.id, Date.now());
-                        inboxStorage.push(tempInbox);
-                        console.log(inboxStorage);
-                        resolve(messagesStorage[messagesStorage.length - 1]);
+                            // creating a temp sent message
+                            const tempInbox = new InboxSchema(recieverId,
+                                tempMessage.id, Date.now());
+                            inboxStorage.push(tempInbox);
+                            console.log(inboxStorage);
+                            resolve(messagesStorage[messagesStorage
+                                .length - 1]);
+                        } else {
+                            const result = {
+                                data: 'All users are not autheticated',
+                            };
+                            resolve(result);
+                        }
                     } else reject(err);
                 });
         } else reject(err);
