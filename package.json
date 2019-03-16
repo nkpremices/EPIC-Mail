@@ -4,7 +4,7 @@
   "description": "A web mailing app",
   "main": "./server/index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha ./server/tests/* --require babel-core/register --exit",
+    "test": "./node_modules/.bin/mocha ./server/tests/* --require babel-core/register --exit",
     "start": "nodemon ./server/index.js --exec babel-node --presets env",
     "cover": "nyc --reporter=text npm test",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
