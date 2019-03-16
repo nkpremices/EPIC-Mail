@@ -65,4 +65,4 @@ const findUser = (userNameEmail, password) => new Promise((resolve, reject) => {
     });
 });
 
-export { saveUser, findUser };
+export { saveUser, findUser, usersStorage };
