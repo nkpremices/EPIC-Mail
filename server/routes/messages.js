@@ -5,8 +5,6 @@ const goTo = (router) => {// eslint-disable-line
         .post(messageController.send);
     router.route('/messages')
         .get(messageController.fetchAll);
-    router.route('/messages')
-        .get(messageController.fetchAll);
 };
 
 export default goTo;
