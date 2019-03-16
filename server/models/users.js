@@ -1,39 +1,68 @@
 import bcrypt from 'bcrypt';
-import { development } from '../configs/configs.routes';
+import configs from '../config/config';
 
-const environment = process.env.NODE_ENV;
-const stage = development;
+'use strict';// eslint-disable-line 
 
-let
+// a schema of all the users
+class UsersSchema {
+    constructor(id,
+        email, userName,
+        firstName, lastName,
+        password, isNew) {
+        this.id = id;
+        this.email = email;
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.isNew = isNew;
+    }
+}
 
-// schema maps to a collection
+// a data structure for storing all the users
 
-const usersTab = [
-    {
-        id: 1, email: 'premices.tuvere@gmail.com', firstName: 'premices', lastName: 'nzanzu kamasuwa', password: 'PRK781227prk', isModified: false, isNew: true,
-    },
-];
+const usersStorage = [];
+let id = 0;
 
-// function to insert a user
+// a function to save a user when requested
+const saveUser = (email, userName, firstName,
+    lastName, password) => new Promise((resolve, reject) => {
+    // creating a temp user
+    // eslint-disable-next-line no-unused-expressions
+    const tempUser = new UsersSchema(id += 1,
+        email, userName, firstName, lastName, password, true);
 
-const insertUser = ( email,firstName,lastName,password ) =>{
-    const buff = {
-        id: usersTab[usersTab.length-1].id+1, email: email, firstName: firstName, lastName: lastName, password: password, isModified: false, isNew: true,
-    };
-
-    usersTab.push(buff);
-};
-
-// encrypt password before save
-usersTab.forEach((user) => {
-    if (!user.isModified && user.isNew) { // don't rehash if it's an old user
-        bcrypt.hash(user.password, stage.saltingRounds, (err, hash) => {
-            if (err) {
-                console.log('Error hashing password for user', user.name);
-            } else {
-                user.password = hash;
+    // hashing password before storing
+    bcrypt.hash(password, configs.development.saltingRounds,
+        (err, hash) => {
+            if (err) reject(err);
+            else {
+                tempUser.password = hash;
+                tempUser.isNew = false;
+                usersStorage.push(tempUser);
+                console.log(usersStorage);
+                resolve(usersStorage[usersStorage.length - 1]);
             }
         });
-    }
 });
-export default usersTab;
+
+const findUser = (userNameEmail, password) => new Promise((resolve, reject) => {
+    // finding a user by his email or username
+    const tempUser = usersStorage.find(el => el.userName === userNameEmail)
+    || usersStorage.find(el => el.email === userNameEmail);
+
+    // seing if the password matches
+    bcrypt.compare(password, tempUser.password).then((match) => {
+        if (match) {
+            resolve(tempUser);
+        } else {
+            const error = {
+                status: 500,
+                error: 'Authentication error',
+            };
+            reject(error);
+        }
+    });
+});
+
+export { saveUser, findUser, usersStorage };

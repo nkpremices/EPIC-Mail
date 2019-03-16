@@ -1,8 +1,10 @@
-import { module } from '../controllers/users';
+import usersController from '../controllers/users';
 
-const users = (router) => {
-    router.route('/users')
-        .post(module.add);
+const goTo = (router) => {
+    router.route('/auth/signup')
+        .post(usersController.signup);
+    router.route('/auth/login')
+        .post(usersController.login);
 };
 
-export { users };// eslint-disable-line
+export default goTo;
