@@ -12,7 +12,6 @@ class MessageSchema {
         this.text = text;
         this.parentMessageId = parentMessageId;
         this.status = status;
-        this.unread = true;
     }
 }
 
@@ -27,8 +26,8 @@ class SentSchema {// eslint-disable-line
 
 // a schema for inbox messages
 class InboxSchema {// eslint-disable-line
-    constructor(reciever, messageId, createdOn) {
-        this.reciever = reciever;
+    constructor(recieverId, messageId, createdOn) {
+        this.recieverId = recieverId;
         this.messageId = messageId;
         this.createdOn = createdOn;
     }
@@ -86,9 +85,33 @@ const saveMessage = (sender, reciever, subject, text, parentMessageId,
 
 
 const fetchAllMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
-    if (messagesStorage.length === 0) resolve(false);
-    else resolve(messagesStorage);
+    if (messagesStorage.length !== 0) {
+        const response = messagesStorage.map((message) => {
+            const {
+                id,
+                createdOn,
+                subject,
+                text,
+                parentMessageId,
+                status,
+            } = message;
+            const { senderId } = sentStorage
+                .filter(reference => reference.messageId === id)[0];
+            const { recieverId } = inboxStorage
+                .filter(reference => reference.messageId === id)[0];
+            return {
+                id,
+                createdOn,
+                subject,
+                text,
+                senderId,
+                recieverId,
+                parentMessageId,
+                status,
+            };
+        });
+        resolve(response);
+    } else resolve(false);
 });
-
 
 export { saveMessage, fetchAllMessages }// eslint-disable-line
