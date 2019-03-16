@@ -5,7 +5,7 @@ const messagesController = {
     // function to send a message to a specific user
     send: async (req, res) => {
         const result = {};
-        const _status = 200;// eslint-disable-line
+        let _status = 200;// eslint-disable-line
 
         const {
             sender, reciever, subject, text, parentMessageId, status,
@@ -13,6 +13,7 @@ const messagesController = {
         try {
             const tempMessage = await saveMessage(sender, reciever, subject,
                 text, parentMessageId, status);
+            if (tempMessage.data) _status = 401;
             result.status = _status;
             result.data = [tempMessage];
             res.status(_status).json(result);
@@ -23,8 +24,7 @@ const messagesController = {
     // Function to get all recieved messages of a specific user
     fetchAll: async (req, res) => {
         const result = {};
-        const _status = 200;// eslint-disable-line
-        const { user } = req.body;
+        let _status = 200;// eslint-disable-line
         const tempMessages = await fetchAllMessages();
         if (tempMessages) {
             result.status = _status;
