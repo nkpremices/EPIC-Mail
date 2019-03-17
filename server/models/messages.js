@@ -143,4 +143,10 @@ const fetchAllSentMessages = () => new Promise((resolve, reject) => {// eslint-d
     resolve(displayMessages(messagesStorage));
 });
 
-export { saveMessage, fetchAllMessages, fetchAllUnreadMessages, fetchAllSentMessages }// eslint-disable-line
+const fetchSpecificMessage = (id) => new Promise((resolve, reject) => {// eslint-disable-line
+    const requestedMessage = messagesStorage
+        .filter(message => message.id === parseInt(id, 10));
+    resolve(displayMessages(requestedMessage));
+});
+
+export { saveMessage, fetchAllMessages, fetchAllUnreadMessages, fetchAllSentMessages, fetchSpecificMessage }// eslint-disable-line

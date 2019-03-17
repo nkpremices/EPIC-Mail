@@ -137,4 +137,21 @@ describe('messages', () => {// eslint-disable-line
                 done();
             });
     });
+    it('Should return a requested messages', (done) => { // eslint-disable-line
+        chai.request(server)// eslint-disable-line
+            .get('/api/v1/messages/1')
+            .end((err, res) => {  // eslint-disable-line           
+                res.body.should.have.property('data')
+                    .which.is.an('array');
+                done();
+            });
+    });
+    it('a requested message should be an object', (done) => { // eslint-disable-line
+        chai.request(server)// eslint-disable-line
+            .get('/api/v1/messages/1')
+            .end((err, res) => {  // eslint-disable-line           
+                res.body.data[0].should.be.an('object');
+                done();
+            });
+    });
 });
