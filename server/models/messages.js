@@ -149,4 +149,22 @@ const fetchSpecificMessage = (id) => new Promise((resolve, reject) => {// eslint
     resolve(displayMessages(requestedMessage));
 });
 
-export { saveMessage, fetchAllMessages, fetchAllUnreadMessages, fetchAllSentMessages, fetchSpecificMessage }// eslint-disable-line
+const deleteSpecificMessage = (id) => new Promise((resolve, reject) => {// eslint-disable-line
+    const requestedMessage = messagesStorage
+        .filter(message => message.id === parseInt(id, 10));
+    if (requestedMessage.length !== 0) {
+        messagesStorage.splice(messagesStorage.indexOf(requestedMessage[0]), 1);
+        resolve([{
+            message: 'successful',
+        }]);
+    } else resolve(false);
+});
+
+export {
+    saveMessage,
+    fetchAllMessages,
+    fetchAllUnreadMessages,
+    fetchAllSentMessages,
+    fetchSpecificMessage,
+    deleteSpecificMessage,
+};

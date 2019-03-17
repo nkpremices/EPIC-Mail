@@ -154,4 +154,12 @@ describe('messages', () => {// eslint-disable-line
                 done();
             });
     });
+    it('Should delete a requested message', (done) => { // eslint-disable-line
+        chai.request(server)// eslint-disable-line
+            .delete('/api/v1/messages/1')
+            .end((err, res) => {  // eslint-disable-line           
+                res.body.data.should.be.a('array').with.property('length', 1);
+                done();
+            });
+    });
 });
