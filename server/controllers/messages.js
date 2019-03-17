@@ -3,6 +3,7 @@ import
     saveMessage,
     fetchAllMessages,
     fetchAllUnreadMessages,
+    fetchAllSentMessages,
 } from '../models/messages';
 
 
@@ -48,6 +49,21 @@ const messagesController = {
         const result = {};
         let _status = 200;// eslint-disable-line
         const tempMessages = await fetchAllUnreadMessages();
+        if (tempMessages) {
+            result.status = _status;
+            result.data = tempMessages;
+            res.status(_status).json(result);
+        } else {
+            result.data = {
+                message: 'empty array',
+            };
+            res.status(404).json(result);
+        }
+    },
+    fetchAllSent: async (req, res) => {
+        const result = {};
+        let _status = 200;// eslint-disable-line
+        const tempMessages = await fetchAllSentMessages();
         if (tempMessages) {
             result.status = _status;
             result.data = tempMessages;
