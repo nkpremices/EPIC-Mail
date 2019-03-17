@@ -5,6 +5,7 @@ import
     fetchAllUnreadMessages,
     fetchAllSentMessages,
     fetchSpecificMessage,
+    deleteSpecificMessage,
 } from '../models/messages';
 
 
@@ -61,6 +62,8 @@ const messagesController = {
             res.status(404).json(result);
         }
     },
+
+    // function to fetch all sent messages
     fetchAllSent: async (req, res) => {
         const result = {};
         let _status = 200;// eslint-disable-line
@@ -76,6 +79,8 @@ const messagesController = {
             res.status(404).json(result);
         }
     },
+
+    // function to fetch a specific message
     fetchSpecific: async (req, res) => {
         const result = {};
         let _status = 200;// eslint-disable-line
@@ -86,7 +91,24 @@ const messagesController = {
             res.status(_status).json(result);
         } else {
             result.data = {
-                message: 'empty array',
+                message: 'Message doesn\'t exist',
+            };
+            res.status(404).json(result);
+        }
+    },
+
+    // function to delete a specific message
+    deleteSpecific: async (req, res) => {
+        const result = {};
+        let _status = 200;// eslint-disable-line
+        const tempMessages = await deleteSpecificMessage(req.params.id);
+        if (tempMessages) {
+            result.status = _status;
+            result.data = tempMessages;
+            res.status(_status).json(result);
+        } else {
+            result.data = {
+                message: 'Message doesn\'t exist',
             };
             res.status(404).json(result);
         }
