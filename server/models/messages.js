@@ -95,10 +95,11 @@ const saveMessage = (sender, reciever, subject, text, parentMessageId,
     });
 });
 
+// a function to discribe the display of the messages
 
-const fetchAllMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
-    if (messagesStorage.length !== 0) {
-        const response = messagesStorage.map((message) => {
+const displayMessages = (storage) => {
+    if (storage.length !== 0) {
+        const response = storage.map((message) => {
             const {
                 id,
                 createdOn,
@@ -122,8 +123,20 @@ const fetchAllMessages = () => new Promise((resolve, reject) => {// eslint-disab
                 status,
             };
         });
-        resolve(response);
-    } else resolve(false);
+        return response;
+    } return false;
+};
+
+const fetchAllMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
+    resolve(displayMessages(messagesStorage));
 });
 
-export { saveMessage, fetchAllMessages }// eslint-disable-line
+// Function to fetch all unread messages
+
+const fetchAllUnreadMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
+    const unreadMessages = messagesStorage
+        .filter(message => message.status === 'unread');
+    resolve(displayMessages(unreadMessages));
+});
+
+export { saveMessage, fetchAllMessages, fetchAllUnreadMessages }// eslint-disable-line
