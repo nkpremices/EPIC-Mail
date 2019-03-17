@@ -139,4 +139,8 @@ const fetchAllUnreadMessages = () => new Promise((resolve, reject) => {// eslint
     resolve(displayMessages(unreadMessages));
 });
 
-export { saveMessage, fetchAllMessages, fetchAllUnreadMessages }// eslint-disable-line
+const fetchAllSentMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
+    resolve(displayMessages(messagesStorage));
+});
+
+export { saveMessage, fetchAllMessages, fetchAllUnreadMessages, fetchAllSentMessages }// eslint-disable-line
