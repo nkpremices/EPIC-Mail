@@ -7,6 +7,8 @@ const goTo = (router) => {// eslint-disable-line
         .get(messageController.fetchAllUnread);
     router.route('/messages/sent')
         .get(messageController.fetchAllSent);
+    router.route('/messages/:id')
+        .get(messageController.fetchSpecific);
     router.route('/messages')
         .get(messageController.fetchAll);
 };
