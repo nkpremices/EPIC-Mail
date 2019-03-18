@@ -466,13 +466,13 @@ const initialization = {
     id: 'inbox',
 };
 
-// A function to delete 
-const destroyProfile = () => {
-    document.querySelector('.profile-box').style.display = ('none')
+// A function to delete
+const destroyProfile = () => {// eslint-disable-line
+    document.querySelector('.profile-box').style.display = ('none');
 };
 
 // A function to destroy the change password message box
-const destroyPasswordMessage = () => {
+const destroyPasswordMessage = () => {// eslint-disable-line
     document.querySelector('.form').style.display = ('none');
 };
 // initializing
