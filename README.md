@@ -11,14 +11,14 @@ A mailing web application
 
 ## ENDPOINTS
 
-| * /api/v1/auth/signup | POST | USer sign up|
-| * /api/v1/auth/login | POST | User Authentication |
-| * /api/v1//messages | POST | Create or send a message|
-| * /api/v1/messages/unread | GET | Fetch all unread messages |
-| * /api/v1/messages/:id | DELETE | Delete a specific email |
-| * /api/v1/messages/:id | GET | Get a specific contact |
-| * /api/v1/messages/sent | GET | Get a specific contact |
-| * /api/v1/messages | GET | Fetch all contacts |
+*  POST /api/v1/auth/signup USer sign up
+* POST  /api/v1/auth/login   User Authentication 
+* POST /api/v1//messages  Create or send a message
+* GET /api/v1/messages/unread  Fetch all unread messages
+* DELETE /api/v1/messages/:id  Delete a specific email 
+* GET /api/v1/messages/:id Get a specific contact 
+* GET /api/v1/messages/sent Get a specific contact
+* GET /api/v1/messages Fetch all contacts 
  
 
 ### Backend language
