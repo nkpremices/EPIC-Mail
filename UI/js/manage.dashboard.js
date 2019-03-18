@@ -466,5 +466,14 @@ const initialization = {
     id: 'inbox',
 };
 
+// A function to delete 
+const destroyProfile = () => {
+    document.querySelector('.profile-box').style.display = ('none')
+};
+
+// A function to destroy the change password message box
+const destroyPasswordMessage = () => {
+    document.querySelector('.form').style.display = ('none');
+};
 // initializing
 MessagesDisplay(initialization);
