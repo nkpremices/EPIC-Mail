@@ -654,3 +654,13 @@ z-index: 5;
     margin: 5px;
     font-weight: bold;
 }
+
+/* classe for the close button on the profile*/
+
+.profile-box img{
+    cursor: pointer;
+}
+
+.reset-password img{
+    cursor: pointer;
+};
