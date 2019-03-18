@@ -11,12 +11,25 @@
 </head>
 
 <body>
-    <div class="signup-page">
-        <!-- Title of the page -->
-        <div class="text-center space " id="header ">
-            <h3 id="sign-text" class="login-up-text">Register to EPIC</h3>
+     <!-- header start -->
+     <div class="header">
+            <div class="header-left to-left">
+                <img class="to-left logo" src="../assets/images/Epiclogo.jpg" onclick="callHome()" width="70" alt="logo">
+                <h1 onclick="callHome()">EPIC-Mail</h1>
+            </div>
+    
+            <!-- Navigation -->
+            <div class="header-right to-right">
+                <div class="li nav-inactive" id="home-nav" onclick="backToHome()"> Home </div>
+                <div class="li nav-inactive" id="signin-nav" onclick="signIn()"> Sign in </div>
+                <div class="li  nav-active" id="signup-nav" onclick="signUp()"> Sign up </div>
+            </div>
+            <!-- End of the navigation -->
         </div>
-        <!-- /Title -->
+        <div class="divider-small"></div>
+    <div class="signup-page">
+    </div>
+    <!-- End of the header-->
 
         <!-- Navigation -->
         <div class="form">
@@ -27,28 +40,27 @@
             <!-- Signup and sign in forms -->
 
             <!-- Signup form -->
-            <form action="./dashboard.html" class="sigup-form">
+            <form action="./dashboard.html" class="signup-form">
                 <div class="form-body">
                     <label>User name</label>
                     <input required type="text" placeholder="User name">
                     <label class="">Password</label>
                     <input required type="password" placeholder="Password">
                     <label class="">Email</label>
-                    <input required type="email" placeholder="Email">
+                        <input required type="email" placeholder="Email">
                     <div class="remember-me">
                         <label class="rm-label ">Remember me</label>
                         <input type="checkbox" id="remember-me" name="choix" />
                     </div>
-                    <div class="button" onclick="backToHome(this)">Back</div>
                     <button>Register</button>
                 </div>
-                <p class="message">Already registred ? <a href="#" id="sigin-ref">Sign in</a></p>
+                <p class="message">Already registred ? <a href="#" id="signin-ref">Sign in</a></p>
             </form>
             <!-- /Signup form -->
 
             <!--Sign in forms -->
 
-            <form action="./dashboard.html" class="sigin-form">
+            <form action="./dashboard.html" class="signin-form hide">
                 <div class="form-body">
                     <label>User name or email</label>
                     <input required type="text" placeholder="User name or email">
@@ -58,7 +70,6 @@
                         <label class="rm-label ">Remember me</label>
                         <input type="checkbox" id="remember-me" name="choix" />
                     </div>
-                    <div  class="button"onclick="backToHome(this)">Back</div>
                     <button>Sign in</button>
                 </div>
                 <p class="message">Not registred ? <a href="#" id="signup-ref">Sign up</a></p>
@@ -71,6 +82,7 @@
 
     <!--Javascript for the changing of the display-->
     <script src="../js/manage.display.js"></script>
+    <script src="../js/manage.home.js"></script>
 </body>
 
 </html>
