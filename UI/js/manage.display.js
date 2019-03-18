@@ -1,6 +1,6 @@
 // fetching a variable comming from the home page
-const params = location.search.substring(1).split("&");
-const temp = params[0].split("=");
+const params = location.search.substring(1).split("&");// eslint-disable-line
+const temp = params[0].split('=');
 const hide = temp[1];
 
 // A variable to fetch actions on the registration page
@@ -17,7 +17,7 @@ const signIn = () => {
 const signUp = () => {
     document.querySelector('.form .hide').className = 'signup-form';
     document.querySelector('.form .buff').className = 'signin-form';
-     // changing the display of the navigation
+    // changing the display of the navigation
     document.getElementById('home-nav').className = 'li nav-inactive';
     document.getElementById('signin-nav').className = 'li nav-inactive';
     document.getElementById('signup-nav').className = 'li nav-active';
@@ -36,6 +36,6 @@ const backToHome = () => { // eslint-disable-line
 };
 
 // Trynig to see which form will be hide
-if(!registration){
-    if(hide) signIn();
+if (!registration) {
+    if (hide) signIn();
 }
