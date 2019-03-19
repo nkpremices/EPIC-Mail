@@ -28,8 +28,8 @@ app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
 
 // Swagger documentation
-app.use('/docs', swaggerUI.serve);
-app.get('/docs', swaggerUI.setup(swaggerDocument));
+app.use('/docs/v1', swaggerUI.serve);
+app.get('/docs/v1', swaggerUI.setup(swaggerDocument));
 
 app.use('/api/v1', routes(router));
 
