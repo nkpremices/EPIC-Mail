@@ -7,8 +7,10 @@ import logger from 'morgan';
 import dotenv from 'dotenv';
 import swaggerUI from 'swagger-ui-express';
 import configs from './config/config';
-import routes from './routes/index';
+import routes1 from './routes/v1/index';
+import routes2 from './routes/v2/index';
 import swaggerDocument from '../swagger.json';
+import swaggerDocumentV2 from '../swagger2.json';
 
 dotenv.config();// Sets up dotenv as soon as our application starts
 
@@ -27,11 +29,19 @@ if (environment !== 'production') {
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
 
-// Swagger documentation
+// Swagger documentation for v1
 app.use('/docs/v1', swaggerUI.serve);
 app.get('/docs/v1', swaggerUI.setup(swaggerDocument));
 
-app.use('/api/v1', routes(router));
+// Swagger documentation for v2
+app.use('/docs/v2', swaggerUI.serve);
+app.get('/docs/v2', swaggerUI.setup(swaggerDocumentV2));
+
+// router for version1
+app.use('/api/v1', routes1(router));
+
+// Router for v2
+app.use('/api/v2', routes2(router));
 
 app.listen(`${stage.port}`, () => {
     console.log(`Server now listening at localhost:${stage.port}`);
