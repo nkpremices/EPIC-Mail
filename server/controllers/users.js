@@ -55,7 +55,7 @@ const signUpInUser = {
                     }];
                     res.status(status).json(result);
                 } catch (error) {
-                    res.status(status = 500).json(`${error}`);
+                    res.status(status = 400).json(`${error}`);
                 }
             }
         });
@@ -116,12 +116,19 @@ const signUpInUser = {
                     }];
                     res.status(status).json(result);
                 } catch (TypeError) {
-                    res.status(status = 500).json('Authentication error');
+                    res.status(status = 400).json('Authentication error');
                 }
             }
         });
     },
-
+    welcomMessage: (req, res) => {
+        const status = 200;
+        const result = {
+            status,
+            message: 'Welcome on EPIC-Mail',
+        };
+        res.status(status).json(result);
+    },
 };
 
 export default signUpInUser;
