@@ -21,7 +21,7 @@ const messagesController = {
         try {
             const tempMessage = await saveMessage(sender, reciever, subject,
                 text, parentMessageId, status);
-            if (tempMessage.data) _status = 401;
+            if (tempMessage.data) _status = 400;
             result.status = _status;
             result.data = [tempMessage];
             res.status(_status).json(result);
@@ -42,7 +42,7 @@ const messagesController = {
             result.data = {
                 message: 'empty array',
             };
-            res.status(404).json(result);
+            res.status(400).json(result);
         }
     },
 
@@ -59,7 +59,7 @@ const messagesController = {
             result.data = {
                 message: 'empty array',
             };
-            res.status(404).json(result);
+            res.status(400).json(result);
         }
     },
 
@@ -76,7 +76,7 @@ const messagesController = {
             result.data = {
                 message: 'empty array',
             };
-            res.status(404).json(result);
+            res.status(400).json(result);
         }
     },
 
@@ -93,7 +93,7 @@ const messagesController = {
             result.data = {
                 message: 'Message doesn\'t exist',
             };
-            res.status(404).json(result);
+            res.status(400).json(result);
         }
     },
 
@@ -110,7 +110,7 @@ const messagesController = {
             result.data = {
                 message: 'Message doesn\'t exist',
             };
-            res.status(404).json(result);
+            res.status(400).json(result);
         }
     },
 };

@@ -5,9 +5,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import dotenv from 'dotenv';
+import swaggerUI from 'swagger-ui-express';
 import configs from './config/config';
 import routes from './routes/index';
-
+import swaggerDocument from '../swagger.json';
 
 dotenv.config();// Sets up dotenv as soon as our application starts
 
@@ -25,6 +26,10 @@ if (environment !== 'production') {
 // app uses initializations
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
+
+// Swagger documentation
+app.use('/docs/v1', swaggerUI.serve);
+app.get('/docs/v1', swaggerUI.setup(swaggerDocument));
 
 app.use('/api/v1', routes(router));
 

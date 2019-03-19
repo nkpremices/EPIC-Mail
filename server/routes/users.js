@@ -5,6 +5,8 @@ const goTo = (router) => {
         .post(usersController.signup);
     router.route('/auth/login')
         .post(usersController.login);
+    router.route('/')
+        .get(usersController.welcomMessage);
 };
 
 export default goTo;

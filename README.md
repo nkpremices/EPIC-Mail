@@ -44,7 +44,7 @@ After cloning the repo, cd to the base directory then type the command
 ```
 > npm install
 ```
-## Contributor
+## Current version
 
 **Version 1.0.0**
 
