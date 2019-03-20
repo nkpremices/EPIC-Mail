@@ -15,6 +15,27 @@ pool.on('connect', () => {
     console.log('connected to the db');
 });
 
+const querryDb = {
+    /**
+   * DB Query
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} object
+   */
+    query(text, params) {
+        return new Promise((resolve, reject) => {
+            pool.query(text, params)
+                .then((res) => {
+                    console.log(2);
+                    resolve(res);
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+    },
+};
+
 /**
  * Create Tables
  */
@@ -22,29 +43,18 @@ const createTables = () => {
     const queryText = `CREATE TABLE IF NOT EXISTS
     users(
       id SERIAL PRIMARY KEY,
-      firstName VARCHAR(128) NOT NULL,
-      lastName VARCHAR(128) NOT NULL,
-      password VARCHAR(128) NOT NULL,
-      email VARCHAR(128) UNIQUE NOT NULL,
+      firstName VARCHAR(128) NULL,
+      lastName VARCHAR(128) NULL,
+      userName VARCHAR(128) NULL,
+      email VARCHAR(128) UNIQUE NULL,
+      password VARCHAR(128) NULL,
       isAdmin BOOLEAN DEFAULT FALSE
     );`;
-
-    pool.query(queryText)
-        .then((res) => {
-            console.log(res);
-            pool.end();
-        })
-        .catch((err) => {
-            console.log(err);
-            pool.end();
-        });
+    querryDb.query(queryText);
 };
 
-pool.on('remove', () => {
-    console.log('client removed');
-    process.exit(0);
-});
 
-exports = {
+export {
     createTables,
+    querryDb,
 };
