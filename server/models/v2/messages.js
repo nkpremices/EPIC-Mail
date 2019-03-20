@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken';
 import { usersStorage } from './users';
 
 // A schema for messages
@@ -48,51 +47,44 @@ const inboxStorage = [];// eslint-disable-line
 
 // a function to save a message when requested
 const saveMessage = (sender, reciever, subject, text, parentMessageId,
-    status) => new Promise((resolve, reject) => {
-    let senderId;// eslint-disable-line
-    let recieverId;// eslint-disable-line
-    const secretKey = process.env.JWT_KEY;
-    jwt.verify(sender, secretKey, (err, decodedSender) => {
-        if (!err) {
-            senderId = decodedSender.id;
-            jwt.verify(reciever, secretKey,
-                (error, decodedReciever) => {
-                    recieverId = decodedReciever.id;
-                    if (!err) {
-                        if (usersStorage.find(user => user
-                            .id === decodedSender.id) && usersStorage
-                            .find(user => user
-                                .id === decodedReciever.id)) {
-                            // creating a temp message
-                            const tempMessage = new MessageSchema(idM += 1,
-                                Date.now(), subject, text,
-                                parentMessageId, status);
-                            messagesStorage.push(tempMessage);
-                            console.log(messagesStorage);
+    status) => new Promise((resolve, reject) => {// eslint-disable-line
+    let senderId;
+    let recieverId;
+    if (usersStorage.find(user => user
+        .email === sender)) {
+        // searching for the recieverID
+        const senderUser = usersStorage.find(user => user
+            .email === sender);
+        senderId = senderUser.id;
+        const recieverUser = usersStorage.find(user => user
+            .email === reciever);
+        recieverId = recieverUser.id;
+        // creating a temp message
+        const tempMessage = new MessageSchema(idM += 1,
+            Date.now(), subject, text,
+            parentMessageId, status);
+        messagesStorage.push(tempMessage);
+        console.log(messagesStorage);
 
-                            // creating a temp sent message
-                            const tempSent = new SentSchema(senderId,
-                                tempMessage.id, Date.now());
-                            sentStorage.push(tempSent);
-                            console.log(sentStorage);
+        // creating a temp sent message
+        const tempSent = new SentSchema(senderId,
+            tempMessage.id, Date.now());
+        sentStorage.push(tempSent);
+        console.log(sentStorage);
 
-                            // creating a temp sent message
-                            const tempInbox = new InboxSchema(recieverId,
-                                tempMessage.id, Date.now());
-                            inboxStorage.push(tempInbox);
-                            console.log(inboxStorage);
-                            resolve(messagesStorage[messagesStorage
-                                .length - 1]);
-                        } else {
-                            const result = {
-                                data: 'All users are not autheticated',
-                            };
-                            resolve(result);
-                        }
-                    } else reject(err);
-                });
-        } else reject(err);
-    });
+        // creating a temp sent message
+        const tempInbox = new InboxSchema(recieverId,
+            tempMessage.id, Date.now());
+        inboxStorage.push(tempInbox);
+        console.log(inboxStorage);
+        resolve(messagesStorage[messagesStorage
+            .length - 1]);
+    } else {
+        const result = {
+            data: 'the sender user is not autheticated',
+        };
+        resolve(result);
+    }
 });
 
 // a function to discribe the display of the messages
