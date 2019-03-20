@@ -46,8 +46,8 @@ const signUpInUser = {
                 const { userName, password, email } = req.body;
                 try {
                     // trying to insert a user
-                    const tempUser = await saveUser(email,
-                        userName, '', '', password);
+                    const tempUser = await saveUser('', '',
+                        userName, email, password);
                     const token = createToken(tempUser);
                     result.status = status;
                     result.data = [{
