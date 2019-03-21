@@ -1,84 +1,38 @@
-import { usersStorage } from './users';
-
-// A schema for messages
-class MessageSchema {
-    constructor(id,
-        createdOn, subject, text,
-        parentMessageId, status) {
-        this.id = id;
-        this.createdOn = createdOn;
-        this.subject = subject;
-        this.text = text;
-        this.parentMessageId = parentMessageId;
-        this.status = status;
-    }
-}
-
-// a schema for sent messages
-class SentSchema {// eslint-disable-line
-    constructor(senderId, messageId, createdOn) {
-        this.senderId = senderId;
-        this.messageId = messageId;
-        this.createdOn = createdOn;
-    }
-}
-
-// a schema for inbox messages
-class InboxSchema {// eslint-disable-line
-    constructor(recieverId, messageId, createdOn) {
-        this.recieverId = recieverId;
-        this.messageId = messageId;
-        this.createdOn = createdOn;
-    }
-}
-
-
-// a data structure for storing all the messages
-
-const messagesStorage = [];
-let idM = 0;
-
-// a data structure for storing all the messages
-const sentStorage = [];// eslint-disable-line
-
-// a data structure for storing all the messages
-const inboxStorage = [];// eslint-disable-line
-
+import moment from 'moment';
+import { querryDb } from '../../../db';
+import {
+    insertMessage,
+    findUserByEmail,
+    findAll,
+    findUnreadMessages,
+    findSentMessages,
+    findMessageById,
+    deleteMessageById,
+} from '../../helpers/v2/queries';
 
 // a function to save a message when requested
 const saveMessage = (sender, reciever, subject, text, parentMessageId,
-    status) => new Promise((resolve, reject) => {// eslint-disable-line
+    status) => new Promise(async (resolve, reject) => {// eslint-disable-line
     let senderId;
     let recieverId;
-    if (usersStorage.find(user => user
-        .email === sender)) {
+    const tempUser = await querryDb.query(findUserByEmail(sender));
+    const tempReciever = await querryDb.query(findUserByEmail(reciever));
+    if (tempUser.rows !== []) {
         // searching for the recieverID
-        const senderUser = usersStorage.find(user => user
-            .email === sender);
-        senderId = senderUser.id;
-        const recieverUser = usersStorage.find(user => user
-            .email === reciever);
-        recieverId = recieverUser.id;
+        senderId = tempUser.rows[0].id;
+        recieverId = tempReciever.rows[0].id;
         // creating a temp message
-        const tempMessage = new MessageSchema(idM += 1,
-            Date.now(), subject, text,
-            parentMessageId, status);
-        messagesStorage.push(tempMessage);
-        console.log(messagesStorage);
+        const tempMessage = [senderId, recieverId,
+            parentMessageId, subject, text, status,
+            moment(new Date())];
 
-        // creating a temp sent message
-        const tempSent = new SentSchema(senderId,
-            tempMessage.id, Date.now());
-        sentStorage.push(tempSent);
-        console.log(sentStorage);
-
-        // creating a temp sent message
-        const tempInbox = new InboxSchema(recieverId,
-            tempMessage.id, Date.now());
-        inboxStorage.push(tempInbox);
-        console.log(inboxStorage);
-        resolve(messagesStorage[messagesStorage
-            .length - 1]);
+        try {
+            const { rows } = await querryDb.query(insertMessage, tempMessage);
+            console.log(rows[0]);
+            resolve(rows[0]);
+        } catch (error) {
+            resolve(error);
+        }
     } else {
         const result = {
             data: 'the sender user is not autheticated',
@@ -87,69 +41,62 @@ const saveMessage = (sender, reciever, subject, text, parentMessageId,
     }
 });
 
-// a function to discribe the display of the messages
-
-const displayMessages = (storage) => {
-    if (storage.length !== 0) {
-        const response = storage.map((message) => {
-            const {
-                id,
-                createdOn,
-                subject,
-                text,
-                parentMessageId,
-                status,
-            } = message;
-            const { senderId } = sentStorage
-                .filter(reference => reference.messageId === id)[0];
-            const { recieverId } = inboxStorage
-                .filter(reference => reference.messageId === id)[0];
-            return {
-                id,
-                createdOn,
-                subject,
-                text,
-                senderId,
-                recieverId,
-                parentMessageId,
-                status,
-            };
-        });
-        return response;
-    } return false;
-};
-
-const fetchAllMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
-    resolve(displayMessages(messagesStorage));
+const fetchAllMessages = () => new Promise(async (resolve, reject) => {// eslint-disable-line
+    try {
+        const { rows } = await querryDb.query(findAll('messages'));
+        resolve(rows);
+    } catch (error) {
+        reject(error);
+    }
 });
 
 // Function to fetch all unread messages
 
-const fetchAllUnreadMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
-    const unreadMessages = messagesStorage
-        .filter(message => message.status === 'unread');
-    resolve(displayMessages(unreadMessages));
+const fetchAllUnreadMessages = () => new Promise(async (resolve, reject) => {// eslint-disable-line
+    try {
+        const { rows } = await querryDb.query(findUnreadMessages);
+        resolve(rows);
+    } catch (error) {
+        reject(error);
+    }
 });
 
-const fetchAllSentMessages = () => new Promise((resolve, reject) => {// eslint-disable-line
-    resolve(displayMessages(messagesStorage));
+const fetchAllSentMessages = () => new Promise(async (resolve, reject) => {// eslint-disable-line
+    try {
+        const { rows } = await querryDb.query(findSentMessages);
+        resolve(rows);
+    } catch (error) {
+        reject(error);
+    }
 });
 
-const fetchSpecificMessage = (id) => new Promise((resolve, reject) => {// eslint-disable-line
-    const requestedMessage = messagesStorage
-        .filter(message => message.id === parseInt(id, 10));
-    resolve(displayMessages(requestedMessage));
+const fetchSpecificMessage = (id) => new Promise( async (resolve, reject) => {// eslint-disable-line
+    try {
+        const { rows } = await querryDb.query(findMessageById(id));
+        console.log(rows);
+        resolve(rows);
+    } catch (error) {
+        reject(error);
+    }
 });
 
-const deleteSpecificMessage = (id) => new Promise((resolve, reject) => {// eslint-disable-line
-    const requestedMessage = messagesStorage
-        .filter(message => message.id === parseInt(id, 10));
-    if (requestedMessage.length !== 0) {
-        messagesStorage.splice(messagesStorage.indexOf(requestedMessage[0]), 1);
-        resolve([{
-            message: 'successful',
-        }]);
-    } else resolve(false);
+const deleteSpecificMessage = (id) => new Promise(async (resolve, reject) => {// eslint-disable-line
+    try {
+        const previousMessage = await querryDb.query(findMessageById(id));
+        if (!previousMessage.rows[0]) {
+            resolve([{
+                message: 'Message doesn\'t exist',
+            }]);
+        } else {
+            const { rows } = await querryDb.query(deleteMessageById(id));
+            console.log(rows);
+            resolve([{
+                message: 'Deleted successfully',
+            }]);
+        }
+    } catch (error) {
+        reject(error);
+    }
 });
 
 export {
