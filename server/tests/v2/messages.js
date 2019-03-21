@@ -29,7 +29,7 @@ const unreadSendMessageTemp = {
 
 describe('messages', () => {// eslint-disable-line
 
-    it('the body should be an object on post', (done) => { // eslint-disable-line
+    it('the body should be an object having data property on post', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .post('/api/v2/messages')
             .send(sendMessageTemp)
@@ -39,7 +39,7 @@ describe('messages', () => {// eslint-disable-line
                 done();
             });
     });
-    it('the body should be an object on get all messages', (done) => { // eslint-disable-line
+    it('the body should be an object having property data on get all messages', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .get('/api/v2/messages')
             .end((err, res) => {  // eslint-disable-line           
