@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { querryDb } from '../../../db';
+import { querryDb } from '../../helpers/v2/db';
 import {
     insertMessage,
     findUserByEmail,
