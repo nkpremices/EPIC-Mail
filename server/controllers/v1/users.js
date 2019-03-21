@@ -2,8 +2,6 @@ import jwt from 'jsonwebtoken';
 import joi from 'joi';
 import { saveUser, findUser } from '../../models/v1/users';
 
-// eslint-disable-next-line no-unused-expressions
-'use strict';
 
 const createToken = (tempUser) => {
     const playLoad = {

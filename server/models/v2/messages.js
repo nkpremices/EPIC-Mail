@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { querryDb } from '../../../db';
+import { querryDb } from '../../helpers/v2/db';
 import {
     insertMessage,
     findUserByEmail,
@@ -20,7 +20,14 @@ const saveMessage = (sender, reciever, subject, text, parentMessageId,
     if (tempUser.rows[0] !== undefined) {
         // searching for the recieverID
         senderId = tempUser.rows[0].id;
-        recieverId = tempReciever.rows[0].id;
+        try {
+            recieverId = tempReciever.rows[0].id;
+        } catch (error) {
+            const result = {
+                data: 'the reciever must be provided',
+            };
+            resolve(result);
+        }
         // creating a temp message
         const tempMessage = [senderId, recieverId,
             parentMessageId, subject, text, status,
@@ -31,11 +38,14 @@ const saveMessage = (sender, reciever, subject, text, parentMessageId,
             console.log(rows[0]);
             resolve(rows[0]);
         } catch (error) {
-            resolve(error);
+            const result = {
+                data: 'All the fields must be provided',
+            };
+            resolve(result);
         }
     } else {
         const result = {
-            data: 'the sender user is not autheticated',
+            data: 'the sender user is not autheticated or is not provided',
         };
         resolve(result);
     }
@@ -72,6 +82,12 @@ const fetchAllSentMessages = () => new Promise(async (resolve, reject) => {// es
 
 const fetchSpecificMessage = (id) => new Promise( async (resolve, reject) => {// eslint-disable-line
     try {
+        const previousMessage = await querryDb.query(findMessageById(id));
+        if (!previousMessage.rows[0]) {
+            resolve([{
+                message: 'Message doesn\'t exist',
+            }]);
+        }
         const { rows } = await querryDb.query(findMessageById(id));
         console.log(rows);
         resolve(rows);

@@ -1,13 +1,11 @@
 import bcrypt from 'bcrypt';
 import configs from '../../config/config';
-import { querryDb } from '../../../db';
+import { querryDb } from '../../helpers/v2/db';
 import {
     insertUser,
     findUserByEmail,
     setUserLogedIn,
 } from '../../helpers/v2/queries';
-
-'use strict';// eslint-disable-line 
 
 // a schema of all the users
 

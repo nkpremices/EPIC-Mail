@@ -1,8 +1,6 @@
 import bcrypt from 'bcrypt';
 import configs from '../../config/config';
 
-'use strict';// eslint-disable-line 
-
 // a schema of all the users
 class UsersSchema {
     constructor(id,
