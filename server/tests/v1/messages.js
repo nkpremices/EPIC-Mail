@@ -46,8 +46,8 @@ describe('messages', () => {// eslint-disable-line
             .post('/api/v1/auth/signup')
             .send(sender)
             .end((err, res) => {
-                sendMessageTemp.sender = res.body.data[0].token;
-                unreadSendMessageTemp.sender = res.body.data[0].token;
+                sendMessageTemp.sender = res.body.data[0].email;
+                unreadSendMessageTemp.sender = res.body.data[0].email;
                 res.body.should.be.an('Object');
                 done();
             });
@@ -57,8 +57,8 @@ describe('messages', () => {// eslint-disable-line
             .post('/api/v1/auth/signup')
             .send(reciever)
             .end((err, res) => {
-                sendMessageTemp.reciever = res.body.data[0].token;
-                unreadSendMessageTemp.reciever = res.body.data[0].token;
+                sendMessageTemp.reciever = res.body.data[0].email;
+                unreadSendMessageTemp.reciever = res.body.data[0].email;
                 res.body.should.be.an('Object');
                 done();
             });
@@ -67,15 +67,6 @@ describe('messages', () => {// eslint-disable-line
         chai.request(server)// eslint-disable-line
             .post('/api/v1/messages')
             .send(sendMessageTemp)
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('data')
-                    .which.is.an('array');
-                done();
-            });
-    });
-    it('the body should be an object on get all messages', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v1/messages')
             .end((err, res) => {  // eslint-disable-line           
                 res.body.should.have.property('data')
                     .which.is.an('array');
@@ -107,58 +98,7 @@ describe('messages', () => {// eslint-disable-line
             .get('/api/v1/messages/unread')
             .end((err, res) => {  // eslint-disable-line           
                 res.body.should.have.property('data')
-                    .which.is.an('array');
-                done();
-            });
-    });
-    it('Unread message should be an object', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v1/messages/unread')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.data[0].should.have.property('status', 'unread')
-                    .which.is.a('string');
-                done();
-            });
-    });
-    it('Should return sent messages', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v1/messages/sent')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('data')
-                    .which.is.an('array');
-                done();
-            });
-    });
-    it('a sent message should be an object', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v1/messages/sent')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.data[0].should.be.an('object');
-                done();
-            });
-    });
-    it('Should return a requested messages', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v1/messages/1')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('data')
-                    .which.is.an('array');
-                done();
-            });
-    });
-    it('a requested message should be an object', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v1/messages/1')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.data[0].should.be.an('object');
-                done();
-            });
-    });
-    it('Should delete a requested message', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .delete('/api/v1/messages/1')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.data.should.be.a('array').with.property('length', 1);
+                    .which.is.an('object');
                 done();
             });
     });
