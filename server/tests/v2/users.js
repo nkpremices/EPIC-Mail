@@ -16,7 +16,7 @@ const userLog = {
 };
 
 describe('signup', () => {// eslint-disable-line
-    it('should return an object on error', (done) => { // eslint-disable-line
+    it('should return an object on sucess', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .post('/api/v2/auth/signup')
             .send(user)
