@@ -72,6 +72,12 @@ const fetchAllSentMessages = () => new Promise(async (resolve, reject) => {// es
 
 const fetchSpecificMessage = (id) => new Promise( async (resolve, reject) => {// eslint-disable-line
     try {
+        const previousMessage = await querryDb.query(findMessageById(id));
+        if (!previousMessage.rows[0]) {
+            resolve([{
+                message: 'Message doesn\'t exist',
+            }]);
+        }
         const { rows } = await querryDb.query(findMessageById(id));
         console.log(rows);
         resolve(rows);
