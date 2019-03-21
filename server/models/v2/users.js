@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import configs from '../../config/config';
-import { querryDb } from '../../../db';
+import { querryDb } from '../../helpers/v2/db';
 import {
     insertUser,
     findUserByEmail,
