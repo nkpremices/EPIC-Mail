@@ -7,8 +7,6 @@ import {
     setUserLogedIn,
 } from '../../helpers/v2/queries';
 
-'use strict';// eslint-disable-line 
-
 // a schema of all the users
 
 // a data structure for storing all the users
