@@ -53,8 +53,7 @@ describe('messages', () => {// eslint-disable-line
             .get('/api/v2/messages/unread')
             .end((err, res) => {  // eslint-disable-line           
                 res.body.should.have.property('data')
-                    .which.is.an('object').which.have
-                    .property('message').which.is.a('string');
+                    .which.is.an('array');
                 done();
             });
     });
@@ -82,7 +81,7 @@ describe('messages', () => {// eslint-disable-line
             .get('/api/v2/messages/unread')
             .end((err, res) => {  // eslint-disable-line           
                 res.body.data[0].should.have.property('isread', false)
-                    .which.is.a('string');
+                    .which.is.a('boolean');
                 done();
             });
     });
@@ -112,11 +111,11 @@ describe('messages', () => {// eslint-disable-line
                 done();
             });
     });
-    it('a requested message should be an object', (done) => { // eslint-disable-line
+    it('a requested message should be an empty array on error', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .get('/api/v2/messages/1')
             .end((err, res) => {  // eslint-disable-line           
-                res.body.data[0].should.be.an('object');
+                res.body.data.should.be.an('array');
                 done();
             });
     });
