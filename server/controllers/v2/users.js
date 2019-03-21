@@ -77,49 +77,61 @@ const usersController = {
                 password: joi.string().required(),
             });
         }
-        joi.validate(data, joySchema, async (err) => {
-            if (err) {
+        try {
+            joi.validate(data, joySchema, async (err) => {
+                if (err) {
+                    res.status(400).json({
+                        status: 400,
+                        data: {
+                            message: err.details[0].message,
+                        },
+                    });
+                } else { // eslint-disable-next-line
+                    // eslint-disable-next-line no-underscore-dangle
+                    let _password = '';
+                    /* seing wether the reqquest contains
+                    an email or a username */
+                    if (req.body.userName) {
+                        const { userName, password } = req.body;
+                        userNameEmail = userName;
+                        _password = password;
+                    }
+                    if (req.body.email) {
+                        const { email, password } = req.body;
+                        userNameEmail = email;
+                        _password = password;
+                    }
+                    try {
+                        const tempUser = await findUser(userNameEmail,
+                            _password);
+                        const token = createToken(tempUser);
+                        result.status = status;
+                        result.data = [{
+                            token,
+                        }];
+                        res.status(status).json(result);
+                    } catch (TypeError) {
+                        res.status(status = 400).json(
+                            res.status(400).json({
+                                status: 400,
+                                data: {
+                                    message: 'Username or password incorect',
+                                },
+                            }),
+                        );
+                    }
+                }
+            });
+        } catch (error) {
+            res.status(status = 400).json(
                 res.status(400).json({
                     status: 400,
                     data: {
-                        message: err.details[0].message,
+                        message: 'the email must be given',
                     },
-                });
-            } else {
-                // eslint-disable-next-line no-underscore-dangle
-                let _password = '';
-                /* seing wether the reqquest contains
-                an email or a username */
-                if (req.body.userName) {
-                    const { userName, password } = req.body;
-                    userNameEmail = userName;
-                    _password = password;
-                }
-                if (req.body.email) {
-                    const { email, password } = req.body;
-                    userNameEmail = email;
-                    _password = password;
-                }
-                try {
-                    const tempUser = await findUser(userNameEmail, _password);
-                    const token = createToken(tempUser);
-                    result.status = status;
-                    result.data = [{
-                        token,
-                    }];
-                    res.status(status).json(result);
-                } catch (TypeError) {
-                    res.status(status = 400).json(
-                        res.status(400).json({
-                            status: 400,
-                            data: {
-                                message: 'Username or password incorect',
-                            },
-                        }),
-                    );
-                }
-            }
-        });
+                }),
+            );
+        }
     },
 };
 
