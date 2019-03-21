@@ -19,7 +19,8 @@ createTables();
 
 // modules initialization
 const app = express();
-const router = express.Router();
+const router1 = express.Router();
+const router2 = express.Router();
 
 const environment = process.env.NODE_ENV; // development
 const stage = configs.development;
@@ -40,11 +41,12 @@ app.get('/docs/v2', swaggerUI.setup(swaggerDocumentV2));
 app.use('/docs/v1', swaggerUI.serve);
 app.get('/docs/v1', swaggerUI.setup(swaggerDocument));
 
-// Router for v1
-app.use('/api/v1', routes1(router));
 
 // Router for v2
-app.use('/api/v2', routes2(router));
+app.use('/api/v2', routes2(router2));
+
+// Router for v1
+app.use('/api/v1', routes1(router1));
 
 
 app.listen(`${stage.port}`, () => {
