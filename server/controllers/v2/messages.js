@@ -6,7 +6,7 @@ import
     fetchAllSentMessages,
     fetchSpecificMessage,
     deleteSpecificMessage,
-} from '../models/messages';
+} from '../../models/v2/messages';
 
 
 const messagesController = {

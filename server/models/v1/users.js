@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import configs from '../config/config';
+import configs from '../../config/config';
 
 'use strict';// eslint-disable-line 
 

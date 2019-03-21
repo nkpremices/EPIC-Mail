@@ -1,4 +1,4 @@
-import messageController from '../controllers/messages';
+import messageController from '../../controllers/v2/messages';
 
 const goTo = (router) => {// eslint-disable-line
     router.route('/messages')

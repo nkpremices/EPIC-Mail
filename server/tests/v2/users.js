@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../index';
+import server from '../../index';
 
 chai.use(chaiHttp);
 
@@ -11,42 +11,26 @@ const user = {
     email: 'deschant@epic.com',
 };
 const userLog = {
-    userName: 'deschant',
+    email: 'deschant@epic.com',
     password: 'password',
 };
 
 describe('signup', () => {// eslint-disable-line
     it('should return an object', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(user)
             .end((err, res) => {
-                res.body.should.be.an('Object');
-                done();
-            });
-    });
-    it('should have property data', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/signup')
-            .send(user)
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('data')
+                res.body.should.be.an('Object')
+                    .which.have.property('data')
                     .which.is.an('array');
-                done();
-            });
-    });
-    it('should have property status equal to 200', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/signup')
-            .send(user)
-            .end((err, res) => {  // eslint-disable-line           
                 res.body.should.have.property('status', 200);
                 done();
             });
     });
     it('the data should have proprety message on errors ', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/signup')
+            .post('/api/v2/auth/signup')
             .send(user)
             .end((err, res) => {  // eslint-disable-line           
                 res.body.data[0].should.be.an('object')
@@ -57,20 +41,9 @@ describe('signup', () => {// eslint-disable-line
 });
 
 describe('sign in', () => {// eslint-disable-line
-    it('should sign in only signed up users', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/signup')
-            .send(user)
-            .end((err, res) => {
-                res.body.should.be.an('Object')
-                    .with.property('data').which.is
-                    .an('array');
-                done();
-            });
-    });
     it('should have property data', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/login')
+            .post('/api/v2/auth/login')
             .send(userLog)
             .end((err, res) => {  // eslint-disable-line           
                 res.body.should.have.property('data')
@@ -80,7 +53,7 @@ describe('sign in', () => {// eslint-disable-line
     });
     it('should have property status', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/login')
+            .post('/api/v2/auth/login')
             .send(userLog)
             .end((err, res) => {  // eslint-disable-line           
                 res.body.should.have.property('status', 200)
@@ -90,7 +63,7 @@ describe('sign in', () => {// eslint-disable-line
     });
     it('the data should have proprety token ', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
-            .post('/api/v1/auth/login')
+            .post('/api/v2/auth/login')
             .send(userLog)
             .end((err, res) => {  // eslint-disable-line           
                 res.body.data[0].should.be.an('object')

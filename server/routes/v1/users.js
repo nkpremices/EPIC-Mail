@@ -1,4 +1,4 @@
-import usersController from '../controllers/users';
+import usersController from '../../controllers/v1/users';
 
 const goTo = (router) => {
     router.route('/auth/signup')
