@@ -2,8 +2,6 @@ import joi from 'joi';
 import { createToken } from '../../middlewares/v2/validators';
 import { saveUser, findUser } from '../../models/v2/users';
 
-// eslint-disable-next-line no-unused-expressions
-'use strict';
 
 const usersController = {
     // sign up part of the users controller
@@ -122,14 +120,6 @@ const usersController = {
                 }
             }
         });
-    },
-    welcomMessage: (req, res) => {
-        const status = 200;
-        const result = {
-            status,
-            message: 'Welcome on EPIC-Mail',
-        };
-        res.status(status).json(result);
     },
 };
 
