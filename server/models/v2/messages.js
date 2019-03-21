@@ -17,7 +17,7 @@ const saveMessage = (sender, reciever, subject, text, parentMessageId,
     let recieverId;
     const tempUser = await querryDb.query(findUserByEmail(sender));
     const tempReciever = await querryDb.query(findUserByEmail(reciever));
-    if (tempUser.rows !== []) {
+    if (tempUser.rows[0] !== undefined) {
         // searching for the recieverID
         senderId = tempUser.rows[0].id;
         recieverId = tempReciever.rows[0].id;
