@@ -7,6 +7,7 @@ chai.use(chaiHttp);
 const should = chai.should(); // eslint-disable-line
 
 // An object to initialize massages
+// eslint-disable-next-line
 const sendMessageTemp = {
     sender: 'deschant@epic.com',
     reciever: 'premices@epic.com',
