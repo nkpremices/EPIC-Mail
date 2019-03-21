@@ -16,25 +16,13 @@ const userLog = {
 };
 
 describe('signup', () => {// eslint-disable-line
-    it('should return an object', (done) => { // eslint-disable-line
+    it('should return an object on error', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .post('/api/v2/auth/signup')
             .send(user)
             .end((err, res) => {
                 res.body.should.be.an('Object')
-                    .which.have.property('data')
-                    .which.is.an('array');
-                res.body.should.have.property('status', 200);
-                done();
-            });
-    });
-    it('the data should have proprety message on errors ', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .post('/api/v2/auth/signup')
-            .send(user)
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.data[0].should.be.an('object')
-                    .which.have.property('token').which.is.a('String');
+                    .which.have.property('status', 400);
                 done();
             });
     });
