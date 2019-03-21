@@ -48,15 +48,6 @@ describe('messages', () => {// eslint-disable-line
                 done();
             });
     });
-    it('Should return message "empty" when there is no unread message', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v2/messages/unread')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.should.have.property('data')
-                    .which.is.an('array');
-                done();
-            });
-    });
     it('should have an unread message before to display it', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .post('/api/v2/messages')
@@ -76,29 +67,12 @@ describe('messages', () => {// eslint-disable-line
                 done();
             });
     });
-    it('Unread message should be an object', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v2/messages/unread')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.data[0].should.have.property('isread', false)
-                    .which.is.a('boolean');
-                done();
-            });
-    });
     it('Should return sent messages', (done) => { // eslint-disable-line
         chai.request(server)// eslint-disable-line
             .get('/api/v2/messages/sent')
             .end((err, res) => {  // eslint-disable-line           
                 res.body.should.have.property('data')
                     .which.is.an('array');
-                done();
-            });
-    });
-    it('a sent message should be an object', (done) => { // eslint-disable-line
-        chai.request(server)// eslint-disable-line
-            .get('/api/v2/messages/sent')
-            .end((err, res) => {  // eslint-disable-line           
-                res.body.data[0].should.be.an('object');
                 done();
             });
     });
