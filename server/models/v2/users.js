@@ -2,8 +2,9 @@ import bcrypt from 'bcrypt';
 import configs from '../../config/config';
 import { querryDb } from '../../../db';
 import {
-    findAll,
     insertUser,
+    findUserByEmail,
+    setUserLogedIn,
 } from '../../helpers/v2/queries';
 
 'use strict';// eslint-disable-line 
@@ -12,7 +13,7 @@ import {
 
 // a data structure for storing all the users
 
-const usersStorage = async () => querryDb.query(findAll('users'));
+
 // a function to save a user when requested
 const saveUser = (firstName, lastName,
     userName, email, password) => new Promise((resolve, reject) => {
@@ -24,7 +25,8 @@ const saveUser = (firstName, lastName,
     // hashing password before storing
     bcrypt.hash(password, configs.development.saltingRounds,
         async (err, hash) => {
-            if (err) reject(err);
+            if (err && (await querryDb
+                .query(findUserByEmail(email)))) reject(err);
             else {
                 tempUser[4] = hash;
                 tempUser[5] = false;
@@ -41,23 +43,32 @@ const saveUser = (firstName, lastName,
         });
 });
 
-const findUser = (userNameEmail, password) => new Promise((resolve, reject) => {
+const findUser = (userNameEmail,
+    password) => new Promise(async (resolve, reject) => {
     // finding a user by his email or username
-    const tempUser = usersStorage.find(el => el.userName === userNameEmail)
-    || usersStorage.find(el => el.email === userNameEmail);
-
+    const tempUser = await querryDb.query(findUserByEmail(userNameEmail));
+    try {
+        bcrypt.compare(password, tempUser.rows[0].password).then((match) => {
+            if (match) {
+                resolve(tempUser.rows[0]);
+                querryDb.query(setUserLogedIn(tempUser.rows[0].id));
+            } else {
+                const error = {
+                    status: 500,
+                    error: 'Authentication error',
+                };
+                reject(error);
+            }
+        });
+    } catch (TypeError) {
+        const error = {
+            status: 500,
+            error: 'Enter the email please',
+        };
+        reject(error);
+    }
+    console.log(tempUser.rows);
     // seing if the password matches
-    bcrypt.compare(password, tempUser.password).then((match) => {
-        if (match) {
-            resolve(tempUser);
-        } else {
-            const error = {
-                status: 500,
-                error: 'Authentication error',
-            };
-            reject(error);
-        }
-    });
 });
 
-export { saveUser, findUser, usersStorage };
+export { saveUser, findUser };
