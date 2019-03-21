@@ -55,6 +55,14 @@ const signUpInUser = {
                     }];
                     res.status(status).json(result);
                 } catch (error) {
+                    console.log(error);
+                    const errorMessage = `${error}`;
+                    if (errorMessage === 'error: duplicate key value violates unique constraint \"users_email_key\"') { // eslint-disable-line
+                        res.status(status = 400).json({
+                            status: 400,
+                            message: 'A user with that email is already registred', // eslint-disable-line
+                        });
+                    }
                     res.status(status = 400).json(`${error}`);
                 }
             }
