@@ -48,7 +48,7 @@ app.use('/api/v2', routes2(router2));
 // Router for v1
 app.use('/api/v1', routes1(router1));
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     const status = 200;
     const result = {
         status,
