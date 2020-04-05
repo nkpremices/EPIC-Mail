@@ -52,6 +52,5 @@ After cloning the repo, cd to the base directory then type the command
 Prémices NZANZU KAMASUWA <premices.tuvere@gmail.com>
 
 ---
-
 ## License & copyright
 Copyright (c) Prémices NZANZU KAMASUWA, Software developer 
